@@ -2,88 +2,83 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="Elucidating the Design Space of Multimodal Protein Language Models">
-  <meta property="og:title" content="Elucidating the Design Space of Multimodal Protein Language Models">
-  <meta property="og:description" content="Elucidating the Design Space of Multimodal Protein Language Models">
-  <!-- <meta property="og:image" content="https://tao-amodal.github.io/static/images/webpage_preview.png"> -->
-  <meta property="twitter:title" content="Elucidating the Design Space of Multimodal Protein Language Models">
-  <meta property="twitter:description" content="Elucidating the Design Space of Multimodal Protein Language Models">
-  <!-- <meta property="twitter:image" content="https://tao-amodal.github.io/static/images/webpage_preview.png"> -->
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="keywords"
-    content="DPLM-2.1, ICML, Multimodal Protein Language Models, Desing Space, Protein Language Model, Diffusion Model, Bitwise modeling, Residual Diffusion, Flow Matching, Geometric Designs, Multimer, Representation Alignment, Protein Sequence, Protein Structure, Discrete Diffusion, Structure Tokenization, Protein, DPLM-2">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elucidating the Design Space of Multimodal Protein Language Models</title>
-  <!-- <link rel="icon" type="image/x-icon" href="./static/images/car_icon.png"> -->
+    <meta charset="utf-8">
+    <meta name="description" content="Protein Autoregressive Modeling via Multiscale Structure Generation">
+    <meta property="og:title" content="Protein Autoregressive Modeling via Multiscale Structure Generation">
+    <meta property="og:description" content="Protein Autoregressive Modeling via Multiscale Structure Generation">
+    <!-- <meta property="og:image" content="https://tao-amodal.github.io/static/images/webpage_preview.png"> -->
+    <meta property="twitter:title" content="Protein Autoregressive Modeling via Multiscale Structure Generation">
+    <meta property="twitter:description" content="Protein Autoregressive Modeling via Multiscale Structure Generation">
+    <!-- <meta property="twitter:image" content="https://tao-amodal.github.io/static/images/webpage_preview.png"> -->
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="keywords"
+        content="PAR, ICML, Protein Autoregressive Modeling, Next-Scale Prediction, Protein Backbone Generation, Flow Matching, Protein">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Protein Autoregressive Modeling via Multiscale Structure Generation</title>
+    <!-- <link rel="icon" type="image/x-icon" href="./static/images/car_icon.png"> -->
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D65ZW4CJYF"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D65ZW4CJYF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'G-D65ZW4CJYF');
-  </script>
+        gtag('config', 'G-D65ZW4CJYF');
+    </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="stylesheet" href="./static/css/animation_style.css"> <!-- Animation styles -->
-  <link rel="stylesheet" href="./static/css/style.css"> <!-- Animation styles -->
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="stylesheet" href="./static/css/animation_style.css"> <!-- Animation styles -->
+    <link rel="stylesheet" href="./static/css/style.css"> <!-- Animation styles -->
 
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-  <script src="./static/js/jquery-3.6.4.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/lazy.js"></script>
-  <script src="./static/js/faster.js"></script>
-  <script src="./static/js/index.js"></script>
-  <script src="./static/js/animation_script.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="./static/js/jquery-3.6.4.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/lazy.js"></script>
+    <script src="./static/js/faster.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/animation_script.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 
 </head>
 
 <body>
 
-  <section class="hero" style="border-bottom: 1px solid #dbdbdb;">
-    <div class="hero-body" style="padding-bottom: 1.2rem;">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">
-              Elucidating the Design Space of <br>Multimodal Protein Language Models
-            </h1>
-            <div class="is-size-6 publication-authors">
-              <span class="author-block">
-                <a href="https://wesleyhsieh0806.github.io/">Wesley Hsieh</a><sup>1 *,†</sup>,</span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=5JsycngAAAAJ">Xinyou Wang</a><sup>1,2 *</sup>, </span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=hluDH7EAAAAJ">Daiheng Zhang</a><sup>1,3 ‡</sup>, </span>
-              <span class="author-block">
-                <a href="https://openreview.net/profile?id=~Dongyu_Xue1">Dongyu Xue</a><sup>1</sup>, </span>
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=4MB4orsAAAAJ">Fei Ye</a><sup>1</sup>, </span>
-              <span class="author-block">
-                <a href="http://nlp.nju.edu.cn/huangsj/">Shujian Huang</a><sup>2</sup>, </span>
-              <span class="author-block">
-                <a href="https://zhengzx-nlp.github.io/">Zaixiang Zheng</a><sup>1 †</sup>, </span>
-              <span class="author-block">
-                <a href="https://web.cs.ucla.edu/~qgu/">Quanquan Gu</a><sup>1 #</sup>, </span><br>
-            </div>
-            <!-- <div class="is-size-5 publication-authors">
+    <section class="hero" style="border-bottom: 1px solid #dbdbdb;">
+        <div class="hero-body" style="padding-bottom: 1.2rem;">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">
+                            Protein Autoregressive Modeling <br>via Multiscale Structure Generation
+                        </h1>
+                        <div class="is-size-6 publication-authors">
+                            (to update) <span class="author-block">
+                                Yanru Qu, </span>
+                            <span class="author-block">
+                                Cheng-Yen Hsieh, </span>
+                            <span class="author-block">
+                                Zaixiang Zheng, </span>
+                            <span class="author-block">
+                                Ge Liu, </span>
+                            <span class="author-block">
+                                Quanquan Gu, </span>
+                            <br>
+                        </div>
+                        <!-- <div class="is-size-5 publication-authors">
               <span class="author-block">
                 <a href="https://wesleyhsieh0806.github.io/">Wesley Hsieh</a><sup>1</sup>,</span>
               <span class="author-block">
@@ -102,21 +97,19 @@
                 <a href="https://web.cs.ucla.edu/~qgu/">Quanquan Gu</a><sup>1</sup>, </span><br>
             </div> -->
 
-            <!-- <div class="is-size-5 publication-authors">
+                        <!-- <div class="is-size-5 publication-authors">
               <span class="author-block"><sup>1</sup>Carnegie Mellon University &nbsp; </span>
               <span class="author-block"><sup>2</sup>Toyota Research Institute &nbsp; </span>
               <span class="author-block"><small style="font-size: 0.8em;"><br><sup>*</sup>Equal Contribution</small></span>
               <span class="author-block"><small style="font-size: 0.8em;"><br><sup>†</sup>Project Lead</small></span>
               <span class="author-block"><small style="font-size: 0.8em;"><br><sup>‡</sup>Core Contributor</small></span>
             </div> -->
-            <div class="is-size-6 publication-authors">
-              <span class="author-block"><sup>1</sup>ByteDance Research </span>
-              &nbsp;&nbsp;
-              <span class="author-block"><sup>2</sup>Nanjing University  </span>
-              &nbsp;&nbsp;
-              <span class="author-block"><sup>3</sup>Rutgers University  </span>
-              &nbsp;&nbsp;
-              <span class="eql-cntrb"><small style="font-size: 0.75em;"><br>
+                        <div class="is-size-6 publication-authors">
+                            <span class="author-block"><sup>1</sup>ByteDance Research </span>
+                            &nbsp;&nbsp;
+                            <span class="author-block"><sup>2</sup>University of Illinois at Urbana-Champaign </span>
+                            &nbsp;&nbsp;
+                            <!-- <span class="eql-cntrb"><small style="font-size: 0.75em;"><br>
                   <sup>*</sup>Equal Contribution
                   &nbsp;
                   <sup>†</sup>Project Lead
@@ -125,23 +118,24 @@
                   &nbsp;
                   <sup>#</sup>Corresponding Author
                 </small>
-              </span>
-            </div>
-            <!-- <h1 style="font-size:24px">ICCV 2023 (<b>Oral, Best Student Paper</b>)</h1> -->
-            <h2 class="subtitle is-3 has-text-weight-semibold mt-1 mb-1" style="color: #F05365;"> ICML 2025 (<b>Spotlight</b>) </h2>
-            <div class="column has-text-centered">
-              <div class="publication-links">
-                <!-- PDF Link. -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/2504.11454" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>Paper</span>
-                  </a>
-                </span>
-                <!-- Video Link. -->
-                <!-- <span class="link-block">
+              </span> -->
+                        </div>
+                        <!-- <h1 style="font-size:24px">ICCV 2023 (<b>Oral, Best Student Paper</b>)</h1> -->
+                        <h2 class="subtitle is-3 has-text-weight-semibold mt-1 mb-1" style="color: #F05365;"> ICLR 2026
+                            (<b>Submission</b>) </h2>
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper (Incoming)</span>
+                                    </a>
+                                </span>
+                                <!-- Video Link. -->
+                                <!-- <span class="link-block">
                   <a href="https://www.youtube.com/watch?v=KHoAG3gA024"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
@@ -150,44 +144,43 @@
                     <span>Video</span>
                   </a>
                 </span> -->
-                <!-- Code Link. -->
-                <span class="link-block">
-                  <a href="https://github.com/bytedance/dplm"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-                <!-- Model Link. -->
-                <span class="link-block">
-                  <a href="#" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">🤗</span>
-                    <span>Model Checkpoints (Incoming)</span>
-                  </a>
-                </span>
-                <!-- Citation Link. -->
-                <span class="link-block">
-                  <a href="#Citation" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      📚
-                    </span>
-                    <span>Citation</span>
-                  </a>
-                </span>
-              </div>
-            </div>
-            <span class="publication-venue" style="font-weight: 500; font-size: 1.9ch; ; margin-top: 0.5rem; margin-bottom: 0.3rem; display: inline-block;">
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code (Incoming)</span>
+                                    </a>
+                                </span>
+                                <!-- Model Link. -->
+                                <span class="link-block">
+                                    <a href="#" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">🤗</span>
+                                        <span>Model Checkpoints (Incoming)</span>
+                                    </a>
+                                </span>
+                                <!-- Citation Link. -->
+                                <span class="link-block">
+                                    <a href="#Citation" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            📚
+                                        </span>
+                                        <span>Citation</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- <span class="publication-venue" style="font-weight: 500; font-size: 1.9ch; ; margin-top: 0.5rem; margin-bottom: 0.3rem; display: inline-block;">
               <strong>Design choices are essential:</strong> Our designs enable the 650M multimodal PLM to <br>outperform 3B-scale baselines and specialized structure folding models.
-            </span>
-          </div>
+            </span> -->
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <style>
+    <!-- <style>
     .video-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -207,104 +200,43 @@
       /* Videos fill the container width */
       height: auto;
     }
-  </style>
+  </style> -->
 
-  <section class="section" style="padding-top: 0rem;">
-    <!-- <div class="column has-text-centered">
-      <span class="publication-venue" style="font-weight: 500; font-size: 1.9ch;">
-        <strong>Design choices are essential:</strong> Our designs enable the 650M multimodal PLM to <br>outperform the 3B-scale baselines and specialized folding model.
-      </span>
-    </div> -->
-    <div class="animation-wrapper">
-      <div class="animation-container">
-          <!-- Center Captions (Order Corrected: Line 1 then Line 2) -->
-          <div class="center-captions" id="centerCaptions">
-              <p id="captionLine2"><span class="color-limited">Limited</span> Structural Modeling</p>
-              <p id="captionLine1"><span class="color-strong">Strong</span> Sequence Modeling</p>
-          </div>
-          <!-- Central Block -->
-          <div class="block center-block" id="centerBlock">
-              <a href="#Overview">
-                  <!-- <span class="block-caption">Multimodal PLM</span> -->
-                  <!-- Uncomment this if we decide to name our work as DPLM-2.5 -->
-                  <span class="center-block-caption">
-                      <p id="centerCaption">DPLM-2</p>
-                  </span>
-              </a>
-          </div>
+    <br>
 
-          <!-- Structure and Sequence Rows (Order Corrected: Seq then Struct to match image example more closely) -->
-          <div class="structure-sequence-display" id="structureSequenceRows">
-              <div class="data-section structure-section">
-                  <span class="data-label">Struct.</span>
-                  <!-- Verify this image path is correct relative to index.html -->
-                  <img src="./static/img/1a26.jpeg" alt="Protein Structure" class="structure-image">
-              </div>
-              <div class="data-section sequence-section">
-                  <span class="data-label">Seq.</span>
-                  <div class="sequence-text-box">MKTVRQERLK</div>
-              </div>
-          </div>
-
-          <!-- Corner Blocks (Link Fixed in top-right) -->
-          <div class="block corner-block top-left" id="topLeftBlock">
-              <a href="#improved-prediction">
-                  <span class="block-caption-small">Improved Generative Modeling</span>
-              </a>
-          </div>
-          <div class="block corner-block bottom-left" id="bottomLeftBlock">
-              <a href="#REPA">
-                  <span class="block-caption-small">Structure-aware Representation Alignment</span>
-              </a>
-          </div>
-          <div class="block corner-block top-right" id="topRightBlock">
-              <!-- FIXED LINK WRAPPING -->
-              <a href="#Geometry">
-                  <span class="block-caption-small">Geometric Modules</span>
-              </a>
-          </div>
-          <div class="block corner-block bottom-right" id="bottomRightBlock">
-              <a href="#multimer">
-                  <span class="block-caption-small">Data Exploration (Multimer)</span>
-              </a>
-          </div>
-
-          <!-- SVG for Connecting Lines -->
-          <svg class="lines-svg" id="linesSvg" viewbox="0 0 720 450">
-              <!-- Connect from new corner positions to center block edges -->
-             <line id="lineTL" x1="175" y1="115" x2="240" y2="190" /> <!-- y1 changed from 105 -->
-             <line id="lineBL" x1="175" y1="355" x2="240" y2="260" /> <!-- y1 changed from 345 -->
-             <line id="lineTR" x1="545" y1="115" x2="480" y2="190" /> <!-- y1 changed from 105 -->
-             <line id="lineBR" x1="545" y1="355" x2="480" y2="260" /> <!-- y1 changed from 345 -->
-         </svg>
-      </div> <!-- End of animation-container -->
-  </div> <!-- End of animation-wrapper -->
-  </section>
-
-  <br>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <!-- Abstract. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              Multimodal protein language models (PLMs) integrate sequence and token-based structural information, serving as a powerful foundation for protein modeling, generation, and design. 
-              However, the reliance on tokenizing 3D structures into discrete tokens causes substantial loss of fine-grained structural details and correlations. 
-              In this paper, we systematically elucidate the design space of multimodal PLMs to overcome their limitations on structural modeling. 
-              We identify tokenization loss and inaccurate structure token predictions by the PLMs as major bottlenecks.
-              To address these, our proposed design space covers improved generative modeling, structure-aware architectures and representation learning, and data exploration. 
-              Our advancements approach finer-grained supervision, demonstrating that token-based multimodal PLMs can achieve robust structural modeling.
-              The effective design methods dramatically improve the structure generation diversity, and notably, folding abilities of our 650M model by reducing the RMSD from 5.52 to 2.36 on PDB testset, even outperforming 3B baselines and on par with the specialized folding models.
-            </p>
-          </div>
-        </div>
-      </div>
-      <br>
-      <!-- Paper video. -->
-      <!-- <div class="columns is-centered has-text-centered">
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We present protein autoregressive modeling (PAR), the first multi-scale autore-
+                            gressive framework for protein backbone generation via coarse-to-fine next-scale
+                            prediction. Using the hierarchical nature of proteins, PAR generates structures that
+                            mimic sculpting a statue, forming a coarse topology and refining structural details
+                            over scales. To achieve this, PAR consists of three key components: (i) multi-
+                            scale downsampling operations that represent protein structures across multiple
+                            scales during training; (ii) an autoregressive transformer that encodes multi-scale
+                            information and produces conditional embeddings to guide structure generation;
+                            (iii) a flow-based backbone decoder that generates backbone atoms conditioned
+                            on these embeddings. Moreover, autoregressive models suffer from exposure bias,
+                            caused by the training and the generation procedure mismatch, and substantially de-
+                            grades structure generation quality. We effectively alleviate this issue by adopting
+                            noisy context learning and scheduled sampling, enabling robust backbone gener-
+                            ation. Notably, PAR exhibits strong zero-shot generalization, supporting flexible
+                            human-prompted conditional generation and motif scaffolding without requiring
+                            fine-tuning. On the unconditional generation benchmark, PAR effectively learns
+                            protein distributions and produces backbones of high design quality, and exhibits
+                            favorable scaling behavior. Together, these properties establish PAR as a promising
+                            framework for protein structure generation. </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!-- Paper video. -->
+            <!-- <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Video</h2>
           <div class="publication-video">
@@ -313,563 +245,1009 @@
             </iframe>
           </div>
         </div> -->
-    </div>
-    </div>
-    <!--/ Paper video. -->
-  </section>
-
-  <style>
-    img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
-
-  <section>
-    <div class="container is-max-desktop content">
-      <div class="column is-full-width">
-        <div class="toc content mb-5"> <!-- mb-5 adds margin below the TOC -->
-          <h2 class="title is-3" id="Overview">Table of Contents</h2>
-          <ul>
-              <li><a href="#Overview">Design Space Overview</a></li>
-              <li><a href="#contributions-findings">Major Contributions</a></li>
-              <li><a href="#advance-multimodal-plm">Advance Multimodal PLMs</a></li>
-              <ul>
-                <li><a href="#pitfalls-tokenized">Pitfalls of Structure Tokenization</a></li>
-                <li><a href="#improved-prediction">Improved Structure Prediction</a></li>
-                <li><a href="#Geometry">Geometric Architectures</a></li>
-                <li><a href="#REPA">Representation Alignment</a></li>
-                <li><a href="#Orthogonality">Orthogonality</a></li>
-                <li><a href="#multimer">Multimer Exploration</a></li>
-              </ul>
-              <li><a href="#Conclusion">Conclusion</a></li>
-              <li><a href="#Citation">BibTeX</a></li>
-          </ul>
-          <hr> <!-- Optional: Add a horizontal rule after the TOC -->
-      </div>
-        <h2 class="title is-3" id="Overview"> Design Space Overview </h2>
-        <div class="content has-text-justified">
-          <p>
-            We systematically explore the key pitfalls and the design space of token-based multimodal protein language models 
-            to bridge their limitations on structural modeling. Building upon DPLM-2, we advance the designs spanning 
-            <strong>improved generative modeling, structure-aware architectures, representation learning, and data exploration.</strong> 
-            We provide a taxonomy table of our design methods in the paper.
-          </p>
-          <figure style="margin-top: 1rem; margin-bottom: 1rem;"> 
-            <img src="./static/img/combined-structure-modeling.png" alt="Overview of design space" style="width:120%;">
-            
-            <!-- Add the figcaption below the image -->
-            <figcaption class="has-text-centered is-size-7 mt-2"> 
-              <strong>Method overview.</strong> Our design space spans improved generative modeling, structure-aware architectures, representation learning, and data exploration.</strong>
-            </figcaption>
-          </figure>
         </div>
-        <h2 class="title is-3" id="contributions-findings"> Major Contributions and Findings </h2>
-        <div class="content has-text-justified">
-          <p>
-            Our main contributions are summarized as follows:
-          </p>
-          <ul>
-            <li>We conduct a comprehensive study  revealing key pitfalls in structure token-based multimodal protein language models, and systematically elucidate their design space for robust structural modeling.</li>
-            <li>Utilizing improved approaches such as bit-wise discrete modeling offers finer-grained supervision, significantly improving structure generative capability.</li>
-            <li>Introducing representation-level learning and architectural innovations infuses geometric inductive biases and effectively refines generation diversity.</li>
-            <li>We find that multimer and monomer modeling are deeply interconnected and leveraging multimer data advances the structural modeling for both single and multi-chain proteins.</li>
-            <li>Our design methods allow multimodal PLMs to achieve robust structural understanding, improving the folding RMSD from 5.52 to 2.36 on the PDB date dataset, outperforming 3B folding baselines with only 650M parameters.</li>
-          </ul>
         </div>
-      </div>
-    </div>
-    
-    <div class="container is-max-desktop content">
-      <div class="column is-full-width">
-        <h2 class="title is-3" id="advance-multimodal-plm"> Advance Multimodal PLM</h2>
-        <h3 class="title is-4" id="pitfalls-tokenized"> Pitfalls of Modeling over Tokenized Structures</h3>
-        <div class="content has-text-justified">
-          <p>
-            We highlight key <strong>(O)</strong>bservations on the limitations of structure tokenization along with their implications as follows: 
-          </p>
-        </div>
-        <!-- Observation1 -->
-        <div style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-style: italic; font-weight: bold;">
-          (O1): Structure tokenization results in information loss.
-        </div>
-
-        <div class="container is-max-desktop content"> <!-- Adjust container as needed -->
-          <figure class="table-container mt-5 mb-5"> <!-- Responsive wrapper with margins -->
-        
-            <figcaption class="has-text-centered is-size-6 mb-3">
-              <!-- Manually add Table Number if desired -->
-              <b>Table 1:</b> <!-- Adjust number as needed -->
-              <strong>Effects of feature quantization on structure tokenizer reconstruction.</strong>
-            </figcaption>
-        
-            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-              <thead>
-                <tr>
-                  <!-- Using is-vcentered for better alignment with rowspan -->
-                  <th rowspan="2" class="is-vcentered has-text-centered">Latent feature</th>
-                  <th rowspan="2" class="is-vcentered has-text-right">Struct token type</th>
-                  <th colspan="2" class="has-text-centered">Reconstruction</th>
-                </tr>
-                <tr>
-                  <!-- These are the sub-headers under "Reconstruction" -->
-                  <th class="has-text-centered">RMSD ↓</th>
-                  <th class="has-text-centered">TMscore ↑</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <!-- Math rendering: Using simple HTML/Unicode. Use MathJax/KaTeX for complex equations -->
-                  <td class="has-text-centered"><strong><em>z</em></strong><sub>cont</sub></td>
-                  <td class="has-text-right">(pre-quantized) continuous token</td>
-                  <td class="has-text-centered"><strong>1.3127</strong></td>
-                  <td class="has-text-centered"><strong>0.9733</strong></td>
-                </tr>
-                <tr>
-                  <!-- Using ↔ for the LeftRightArrow symbol -->
-                  <td class="has-text-centered"><strong><em>z</em></strong><sub>index</sub> ↔ <strong><em>z</em></strong><sub>quant</sub></td>
-                  <td class="has-text-right">(quantized) discrete token</td>
-                  <td class="has-text-centered">1.9806</td>
-                  <td class="has-text-centered">0.9385</td>
-                </tr>
-              </tbody>
-            </table>
-          </figure>
-        </div>
-        <div class="content has-text-justified">
-          <p>
-            🧪 <strong>Analysis.</strong> Applying token quantization significantly amplifies reconstruction errors
-            (\(\mathrm{RMSD}~ 1.31 \nearrow 1.98\) &amp; \(\mathrm{TMscore}~ 0.97 \searrow 0.93\))
-            , inevitably resulting in loss of fidelity hence detailed structural accuracy.
-            <br>
-            <br>
-            📌 <strong>Implications:</strong> Learning to recover the lost residuals could enhance structure prediction accuracy.
-          </p>
-        </div>
-        <!-- <div>
-          <img src="./static/img/1a26.jpeg" alt="Teaser" style="width:80%;">
-        </div> -->
-
-        <!-- Observation2 -->
-        <div style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-style: italic; font-weight: bold;">
-          (O2): High reconstruction accuracy does not guarantee better structure generative performance in language models.
-        </div>
-        <div class="container is-max-desktop content"> <!-- Adjust container as needed -->
-          <figure class="table-container mt-5 mb-5"> <!-- Responsive wrapper with margins -->
-        
-            <figcaption class="has-text-centered is-size-6 mb-3">
-              <!-- Manually add Table Number if desired -->
-              <b>Table 2:</b> <!-- Adjust number as needed -->
-              <strong>Tokenizer reconstruction vs. language model generation.</strong> Evaluation of folding on CAMEO 2022.
-            </figcaption>
-        
-            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-              <thead>
-                <tr>
-                  <!-- Tokenizer header spans 2 rows -->
-                  <th rowspan="2" class="is-vcentered">Tokenizer</th>
-                  <!-- Reconstruction header spans 2 columns -->
-                  <th colspan="2" class="has-text-centered">Reconstruction</th>
-                  <!-- Generation header spans 2 columns -->
-                  <th colspan="2" class="has-text-centered">Generation</th>
-                </tr>
-                <tr>
-                  <!-- Sub-headers for Reconstruction -->
-                  <th class="has-text-centered">rRMSD ↓</th>
-                  <th class="has-text-centered">rTMscore ↑</th>
-                  <!-- Sub-headers for Generation -->
-                  <th class="has-text-centered">RMSD ↓</th>
-                  <th class="has-text-centered">TMscore ↑</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <!-- Assuming '\method' refers to DPLM-2 based on context -->
-                  <td>DPLM-2</td>
-                  <td class="has-text-centered">1.9806</td>
-                  <td class="has-text-centered">0.9385</td>
-                  <td class="has-text-centered"><strong>7.7025</strong></td>
-                  <td class="has-text-centered"><strong>0.7936</strong></td>
-                </tr>
-                <tr>
-                  <td>ESM3</td>
-                  <td class="has-text-centered"><strong>0.7248</strong></td>
-                  <td class="has-text-centered"><strong>0.9912</strong></td>
-                  <td class="has-text-centered">8.4424</td>
-                  <td class="has-text-centered">0.7924</td>
-                </tr>
-              </tbody>
-            </table>
-          </figure>
-        </div>
-        <div class="content has-text-justified">
-          <p>
-            🧪 <strong>Analysis.</strong> We select tokenizers from DPLM-2 and ESM3, training separate DPLM-2 variants using their respective structure token codebooks. 
-            Although the ESM3 tokenizer achieves superior reconstruction accuracy 
-            (\(\mathrm{RMSD}: 0.72\), \(\mathrm{TMscore}: 0.99\)), the model trained with the DPLM-2 tokenizer’s codebook exhibits stronger protein folding performance.
-            <br>
-            <br>
-            📌 <strong>Implications:</strong> Improvements in reconstruction do not necessarily translate into better generation, and hence greater emphasis should be placed on 
-            improving generative modeling and architectural design.
-          </p>
-        </div>
-
-
-
-        <!-- Observation3 -->
-        <div style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-style: italic; font-weight: bold;">
-          (O3): Index-based structure tokens? Multimodal PLM gets them miserably wrong in structure prediction.
-        </div>
-        <div class="container is-max-desktop content"> <!-- Adjust container as needed -->
-          <figure class="table-container mt-5 mb-5"> <!-- Responsive wrapper with margins -->
-        
-            <figcaption class="has-text-centered is-size-6 mb-3">
-              <!-- Manually add Table Number if desired -->
-              <b>Table 3:</b> <!-- Adjust number as needed -->
-              <strong>Language model structure token prediction accuracy.</strong> Index-based vs. bits-based evaluation on structure folding.
-            </figcaption>
-        
-            <style>
-              /* Ensure this is included if not already in your global CSS */
-              .small-caps {
-                font-variant: small-caps;
-              }
-            </style>
-        
-            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-              <thead>
-                <tr>
-                  <!-- rowspan=2 for first two columns -->
-                  <th rowspan="2" class="is-vcentered">Model</th>
-                  <th rowspan="2" class="is-vcentered">Testset</th>
-                  <!-- colspan=2 for the next two groups -->
-                  <th colspan="2" class="has-text-centered">Struct Token Acc ↑</th>
-                  <th colspan="2" class="has-text-centered">Struct Eval Metric</th>
-                </tr>
-                <tr>
-                  <!-- Sub-headers under the colspan groups -->
-                  <th class="has-text-centered">index</th>
-                  <th class="has-text-centered">bit</th>
-                  <th class="has-text-centered">RMSD ↓</th>
-                  <th class="has-text-centered">TMscore ↑</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- Group 1: DPLM-2 index-based -->
-                <tr>
-                  <!-- rowspan=2 on the first occurrence of the model name -->
-                  <td rowspan="2" class="is-vcentered">DPLM-2 index-based</td>
-                  <td>CAMEO 2022</td>
-                  <td class="has-text-centered">0.0864</td>
-                  <td class="has-text-centered">0.7720</td>
-                  <td class="has-text-centered">7.7025</td>
-                  <td class="has-text-centered">0.7936</td>
-                </tr>
-                <tr>
-                  <!-- Model name cell omitted due to rowspan -->
-                  <td>PDB date split</td>
-                  <td class="has-text-centered">0.1188</td>
-                  <td class="has-text-centered">0.7932</td>
-                  <td class="has-text-centered">5.3071</td>
-                  <td class="has-text-centered">0.8306</td>
-                </tr>
-                <!-- Visual separator provided by is-bordered / is-striped -->
-                <!-- Group 2: DPLM-2 Bit-based -->
-                <tr>
-                  <!-- rowspan=2 on the first occurrence of the model name -->
-                  <td rowspan="2" class="is-vcentered">DPLM-2 <span class="small-caps">Bit</span>-based</td>
-                  <td>CAMEO 2022</td>
-                  <td class="has-text-centered"><strong>0.1258</strong></td>
-                  <td class="has-text-centered"><strong>0.7958</strong></td>
-                  <td class="has-text-centered"><strong>6.4028</strong></td>
-                  <td class="has-text-centered"><strong>0.8380</strong></td>
-                </tr>
-                <tr>
-                  <!-- Model name cell omitted due to rowspan -->
-                  <td>PDB date split</td>
-                  <td class="has-text-centered"><strong>0.2641</strong></td>
-                  <td class="has-text-centered"><strong>0.8648</strong></td>
-                  <td class="has-text-centered"><strong>3.2213</strong></td>
-                  <td class="has-text-centered"><strong>0.9043</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </figure>
-        </div>
-        <div class="content has-text-justified">
-          <p>
-            🧪 <strong>Analysis.</strong> Direct index prediction of structure token is highly inaccurate. (0.0864 on CAMEO).
-            The conventional learning process of index-based labels is highly challenging: 
-            since each index is derived from multiple quantized bits,
-            even small changes at the bit level can result in drastically
-            different indices, leading to suboptimal generation performance. 
-            <br>
-            <br>
-            📌 <strong>Implications:</strong> While the model struggles to recover exact indices, 
-            it effectively captures structural patterns at the bit level.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="container is-max-desktop content">
-      <div class="column is-full-width">
-        <h3 class="title is-4" id="improved-prediction"> Improved Structure Prediction</h3>
-        <div class="content has-text-justified">
-          <p>
-            In this section, we present several improvements on generative modeling aimed at
-            enhancing the accuracy and detail of protein structure modeling. 
-            These approaches build upon the initial structure
-            tokenization and aim to improve predictions by introducing methods for recovering tokenization losses (ResDiff), 
-            bridging discrete and continuous tokens (Bit-based), and
-            enabling direct data-space modeling (Hybrid). 
-            <br>
-            These designs significantly improve the structural generative performance of DPLM-2, even outperforming the 3B-scale baseline.
-            We <span style="background-color: rgb(252, 247, 237);">highlight these results</span> below.
-          </p>
-          <figure style="margin-top: 1rem; margin-bottom: 1rem;"> 
-            <figcaption class="has-text-centered is-size-6 mb-3"> 
-              <i>Table 4.</i> <strong>Evaluation of improved approaches for structure prediction based upon DPLM-2.</strong> 
-            </figcaption>
-            <img src="./static/img/improved_structure_prediction.png" alt="Overview of design space" style="width:80%;">
-            
-            <!-- Add the figcaption below the image -->
-          </figure>
-        </div>
-        <!-- <div>
-          <img src="./static/img/1a26.jpeg" alt="Teaser" style="width:80%;">
-        </div> -->
-      </div>
-    </div>
-    <div class="container is-max-desktop content">
-      <div class="column is-full-width">
-        <h3 class="title is-4" id="Geometry"> Geometry-aware Architectures</h3>
-        <div class="content has-text-justified">
-          <p>
-            We introduce geometric modules to capture higher-order relationship between residues beyond simple sequence-based architectures, essential 
-            for the intricate nature of protein structures as evidenced in protein folding.
-            Our component-wise analysis reveals a balanced configuration that significantly improves both structural modeling and generation diversity, 
-            without reducing much training efficiency—a common limitation of models with geometric layers.
-          </p>
-        </div>
-        <figure style="margin-top: 1rem; margin-bottom: 1rem;"> 
-          <img src="./static/img/geo_train_efficiency.png" alt="Training efficiency of geometric designs." style="width:80%;">
-          <figcaption class="has-text-centered is-size-6 mb-3"> 
-            <strong>Component-wise training efficiency analysis</strong> allows us to arrive at a balanced configuration that improves structural modeling and generation diversity, 
-            without reducing much training efficiency.
-          </figcaption>
-          
-          <!-- Add the figcaption below the image -->
-        </figure>
-        <!-- <div>
-          <img src="./static/img/1a26.jpeg" alt="Teaser" style="width:80%;">
-        </div> -->
-      </div>
-    </div>
-    <div class="container is-max-desktop content">
-      <div class="column is-full-width">
-        <h3 class="title is-4" id="REPA"> Structure-aware Representation Alignment</h3>
-        <div class="content has-text-justified">
-          <p>
-            We adopt representation alignment (REPA) to enhance structure generation by addressing two core challenges: the limitations of discrete tokens 
-            and the challenge of training diffusion models in learning high-quality representations. 
-            Unlike sharp discrete supervision, REPA enables smooth, high-dimensional learning 
-            that preserves subtle structural details. 
-            To transfer meaningful structural semantics, we align representations from the protein language model 
-            with those from a specialized folding model—using ESMFold for its efficient inference, 
-            though other models like AlphaFold are compatible. 
-            Originally designed for vision, we demonstrate that REPA improves the structural diversity of generated proteins and is compatible with both 
-            sequence- and geometry-based architectures.
-          </p>
-        </div>
-        <figure style="margin-top: 1rem; margin-bottom: 1rem;"> 
-          <figcaption class="has-text-centered is-size-6 mb-3"> 
-            <i>Table 6. </i><strong>Representation alignment improves folding prediction</strong> and is compatible with both language model-based architectures and geometric design.
-          </figcaption>
-          <img src="./static/img/REPA_compatible.png" alt="Representation alignment improves structure predic-
-          tion." style="width:80%;">
-          
-          <!-- Add the figcaption below the image -->
-        </figure>
-        <figure style="margin-top: 1rem; margin-bottom: 1rem;"> 
-          <img src="./static/img/geo_diversity_normalized.png" alt="Effects on generation diversity." style="width:80%;">
-          <figcaption class="has-text-centered is-size-6 mb-3"> 
-            <strong>Effects on generation diversity.</strong> Representation alignment significantly improves the low generation diversity of the multimodal PLM.
-          </figcaption>
-          
-          <!-- Add the figcaption below the image -->
-        </figure>
-        <!-- <div>
-          <img src="./static/img/1a26.jpeg" alt="Teaser" style="width:80%;">
-        </div> -->
-      </div>
-    </div>
-    <div class="container is-max-desktop content">
-      <div class="column is-full-width">
-        <h3 class="title is-4" id="Orthogonality"> Analysis of Orthogonality</h3>
-        <div class="content has-text-justified">
-          <p>
-            Building on the individual analysis of each design method, we examine the interactions
-            of these designs by combining them in a unified setting. This analysis completes our blueprint, enabling us to 
-            recommend a final configuration and discuss the orthogonality between each design.
-          </p>
-        </div>
-        <figure style="margin-top: 1rem; margin-bottom: 1rem;"> 
-          <figcaption class="has-text-centered is-size-6 mb-3"> 
-            <i>Table 7. </i><strong>Analysis of orthogonality.</strong> We analyze the compatibility
-            of design methods when combined, with the recommended setting
-            highlighted.
-          </figcaption>
-          <img src="./static/img/orthogonality.png" alt="Analysis of orthogonality." style="width:80%;">
-          
-          <!-- Add the figcaption below the image -->
-        </figure>
-        <!-- <div>
-          <img src="./static/img/1a26.jpeg" alt="Teaser" style="width:80%;">
-        </div> -->
-      </div>
-    </div>
-    <div class="container is-max-desktop content">
-      <div class="column is-full-width">
-        <h3 class="title is-4" id="multimer"> Multimer Data Exploration</h3>
-        <div class="content has-text-justified">
-          <p>
-            Multimer (multi-chain protein) data presents diverse structural arrangements and 
-            interaction scenarios, which are essential for developing a more general multimodal model. 
-            Notably, most existing protein language models have been trained solely on single-chain proteins (monomer). 
-            We conduct a series of analysis to examine the relevance and gap between monomer and multimer data.
-            Our findings suggest that multimer and monomer data are <strong>deeply interconnected</strong>, and incorporating multimer data could 
-            effectively improves the structure folding for both multimer and monomer.
-          </p>
-        </div>
-        <div class="container is-max-desktop content"> <!-- Adjust container as needed -->
-          <figure class="table-container mt-5 mb-5"> <!-- Responsive wrapper with margins -->
-        
-            <figcaption class="has-text-centered is-size-6 mb-3">
-              <!-- Manually add Table Number if desired -->
-              <b>Table 5:</b> <!-- Adjust number as needed -->
-              <strong>Fine-tuning with multimer and monomer data.</strong> We evaluate the effects of fine-tuning with PDB-Multimer and Swissprot on structure prediction. Incorporating multimer data improves both monomer and multimer folding.
-            </figcaption>
-        
-            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-              <thead>
-                <tr>
-                  <!-- Header Row 1 -->
-                  <th colspan="2" class="has-text-centered">Training Data</th>
-                  <!-- rowspan=2 for SFT to span both header definition rows -->
-                  <th rowspan="2" class="has-text-centered is-vcentered">SFT</th>
-                  <th colspan="2" class="has-text-centered">PDB-Multimer</th>
-                  <th colspan="2" class="has-text-centered">CAMEO 2022</th>
-                </tr>
-                <tr>
-                  <!-- Header Row 2: Defines columns under 'Training Data', 'PDB-Multimer', 'CAMEO 2022' -->
-                  <th class="has-text-centered">PDB-Multimer</th>
-                  <th class="has-text-centered">Swissprot</th>
-                  <!-- SFT column omitted due to rowspan -->
-                  <th class="has-text-centered">RMSD ↓</th>
-                  <th class="has-text-centered">TMscore ↑</th>
-                  <th class="has-text-centered">RMSD ↓</th>
-                  <th class="has-text-centered">TMscore ↑</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <!-- Row 1 Data -->
-                  <td class="has-text-centered"></td> <!-- Empty cell for PDB-Multimer column -->
-                  <td class="has-text-centered">✓</td> <!-- Swissprot checkmark -->
-                  <td class="has-text-centered"></td> <!-- SFT empty -->
-                  <td class="has-text-centered">17.966</td>
-                  <td class="has-text-centered">0.771</td>
-                  <td class="has-text-centered">7.703</td>
-                  <td class="has-text-centered">0.793</td>
-                </tr>
-                <tr>
-                  <!-- Row 2 Data -->
-                  <td class="has-text-centered"></td> <!-- PDB-Multimer empty -->
-                  <td class="has-text-centered">✓</td> <!-- Swissprot checkmark -->
-                  <td class="has-text-centered">✓</td> <!-- SFT checkmark -->
-                  <td class="has-text-centered">19.615</td>
-                  <td class="has-text-centered"><strong>0.799</strong></td>
-                  <td class="has-text-centered">6.612</td>
-                  <td class="has-text-centered">0.823</td>
-                </tr>
-                <tr>
-                  <!-- Row 3 Data -->
-                  <td class="has-text-centered">✓</td> <!-- PDB-Multimer checkmark -->
-                  <td class="has-text-centered"></td> <!-- Swissprot empty -->
-                  <td class="has-text-centered">✓</td> <!-- SFT checkmark -->
-                  <td class="has-text-centered"><strong>16.146</strong></td>
-                  <td class="has-text-centered">0.775</td>
-                  <td class="has-text-centered">10.989</td>
-                  <td class="has-text-centered">0.686</td>
-                </tr>
-                <tr>
-                  <!-- Row 4 Data -->
-                  <td class="has-text-centered">✓</td> <!-- PDB-Multimer checkmark -->
-                  <td class="has-text-centered">✓</td> <!-- Swissprot checkmark -->
-                  <td class="has-text-centered">✓</td> <!-- SFT checkmark -->
-                  <td class="has-text-centered"><u>16.674</u></td> <!-- Underlined -->
-                  <td class="has-text-centered"><u>0.798</u></td> <!-- Underlined -->
-                  <td class="has-text-centered"><strong>6.410</strong></td>
-                  <td class="has-text-centered"><strong>0.831</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </figure>
-        </div>
-        <!-- <div>
-          <img src="./static/img/1a26.jpeg" alt="Teaser" style="width:80%;">
-        </div> -->
-      </div>
-    </div>
-
-    <div class="container is-max-desktop content">
-      <div class="column is-full-width"></div>
-      <h2 class="title is-3" id="Conclusion"> Conclusion </h2>
-        <div class="content has-text-justified">            
-              <p>
-                In this work, we identify the limitations in structural modeling for multimodal protein language models 
-                and propose an effective design space to bridge the gap. 
-                We demonstrate that tokenization quantization loss can be effectively mitigated with bit-label supervision and flow-matching, 
-                which significantly improve the structure prediction accuracy. 
-                We introduce geometric inductive biases through architectural design and leverage representation learning 
-                to refine generation diversity. 
-                Building on the strengths of each component, we further investigate their orthogonality, 
-                which informs the final recommended setting. 
-                Lastly, to tackle the scarcity of structure data, 
-                we explore the data coverage to include multimers, ensuring broader 3D structural understanding. 
-                Our results show that these effective designs allow multimodal models to achieve on-par or even superior folding accuracy compared to larger, specialized folding models. We believe this work will contribute to advancing the development of more effective multimodal protein language models.
-              </p>  
-        </div>
-        <!-- </div> -->
-        <!-- <div>
-          <img src="static/images/teaser_final.png" alt="Teaser" style="width:80%;">
-        </div> -->
-      </div>
-    </div>
-  </section>
+        <!--/ Paper video. -->
+    </section>
 
     <style>
-      .video-grid-two-cols {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        /* Two columns */
-        gap: 10px;
-        /* Gap between videos */
-        width: 60%;
-        /* Set the container width to 60% */
-        margin: 0 auto;
-        /* Center the container horizontally */
-      }
-
-      .video-grid-two-cols video {
-        width: 100%;
-        /* Videos fill the container width */
-        height: auto;
-      }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 
-    
+    <section>
+        <div class="container is-max-desktop content">
+            <div class="column is-full-width">
+                <div class="toc content mb-5"> <!-- mb-5 adds margin below the TOC -->
+                    <h2 class="title is-3" id="Overview">Table of Contents</h2>
+                    <ul>
+                        <li><a href="#motivation">Motivation</a></li>
+                        <li><a href="#contributions">Major Contributions</a></li>
+                        <li><a href="#par">Protein Autoregressive Modeling</a></li>
+                        <ul>
+                            <li><a href="#decomposer">Protein Decomposer</a></li>
+                            <li><a href="#encoder">Autoregressive Transformer Encoder</a></li>
+                            <li><a href="#decoder">Flow Decoder</a></li>
+                            <li><a href="#bias">Bias Mitigation</a></li>
+                            <li><a href="#inference">Inference</a></li>
+                        </ul>
+                        <li><a href="#experiments">Experiments</a></li>
+                        <ul>
+                            <li><a href="#uncond">Protein Backbone Generation</a></li>
+                            <li><a href="#prompt">0-shot Prompted Generation</a></li>
+                            <li><a href="#motif">0-shot Motif Scaffolding</a></li>
+                            <li><a href="#scaling">Scaling Effects of PAR</a></li>
+                            <li><a href="#efficiency">Inference Efficiency</a></li>
+                            <li><a href="#attn">Interpreting AR Transformer Attention</a></li>
+                        </ul>
+                        <li><a href="#conclusion">Conclusion</a></li>
+                        <li><a href="#citation">BibTeX</a></li>
+                    </ul>
+                    <hr> <!-- Optional: Add a horizontal rule after the TOC -->
+                </div>
+                <h2 class="title is-3" id="motivation"> Motivation </h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Deep generative modeling of proteins has emerged as a way to design and model novel structures
+                        with desired functions and properties.
+                        A widely adopted approach is to directly model the distribution of three-dimensional protein
+                        structures, mostly based on diffusion models and their variations (e.g., flow matching).
+                        On the other hand, though autoregressive (AR) modeling showing striking scalability, and
+                        zero-shot generalization in large language models,
+                        AR modeling has received little attention in backbone modeling for 2 main reasons:
+                        (i) Extending AR models to continuous data often relies on <b>data discretization</b>, which can
+                        reduce structural fidelity and fine-grained details for proteins.
+                        (ii) Protein residues exhibit strong <b>bidirectional dependencies</b>, while AR model usually
+                        follows a unidirectional order.
+                        Inspired by the Visual AutoRegressive Model (VAR) (todo:cite?), we raise the following research
+                        question:
+                        Could we start from a coarse-grained representation that captures global topology, and
+                        iteratively refine it through <b>next-scale prediction</b> to obtain accurate backbone
+                        geometries?
+                    </p>
+                    <figure style="margin-top: 1rem; margin-bottom: 1rem;">
+                        <img src="./static/img/generation_over_scale_with_rmsd_4_samples.png"
+                            alt="Multi-scale Generation" style="width:100%;">
+
+                        <!-- Add the figcaption below the image -->
+                        <figcaption class="has-text-centered is-size-7 mt-2">
+                            <strong>Figure 1: Multi-scale Generation with PAR.</strong>
+                        </figcaption>
+                    </figure>
+                </div>
+                <h2 class="title is-3" id="contributions"> Major Contributions </h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Our main contributions are summarized as follows:
+                    </p>
+                    <ul>
+                        <li>We present PAR, the first multi-scale AR model for protein backbone generation that
+                            addresses key limitations of existing AR methods.</li>
+                        <li>PAR comprises multi-scale downsampling, AR transformer, and a flow-based decoder, to
+                            directly model Cα atoms, avoiding fidelity loss from discretization.</li>
+                        <li>We alleviate exposure bias through noisy context learning and scheduled sampling,
+                            effectively improving structure generation.</li>
+                        <li>Our model shows an interpretable generation process that forms coarse backbone topology and
+                            refines it progressively.</li>
+                        <li>Benchmarking results show that PAR effectively captures protein data distributions,
+                            achieving FPSD score of 231.5 against PDB dataset that further scale with training compute.
+                        </li>
+                        <li>PAR exhibits zero-shot generalization potential, reflecting the versatility of AR large
+                            language models.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="title is-3" id="par"> Protein Autoregressive Modeling</h2>
+                    <figure style="margin-top: 1rem; margin-bottom: 1rem;">
+                        <img src="./static/img/par_with_example.png" style="width:100%;">
+
+                        <!-- Add the figcaption below the image -->
+                        <figcaption class="has-text-centered is-size-7 mt-2">
+                            <strong>Figure 2: Model Architecture of PAR.</strong>
+                            <p> PAR comprises the autoregressive (AR)
+                                transformer <em>T<sub>θ</sub></em> (left) and the flow-based backbone decoder
+                                <i>v<sub>θ</sub></i> (right). During training, we downsample a backbone
+                                <b>x</b> ∈ ℝ<sup>L×3</sup> into multi-scale representations {x<sup>1</sup>, …,
+                                x<sup>n</sup>}.
+                                <i>AR transformer</i> performs next-scale prediction, producing conditional embeddings
+                                (z<sup>1</sup>, …, z<sup>n</sup>) from (bos, …, x<sup>n−1</sup>). The shared
+                                <i>flow-based decoder</i> learns to denoise backbones x<sup>i</sup> at each scale
+                                conditioned
+                                on z<sup>i</sup>. At inference, PAR autoregressively generates x<sup>i</sup> until the
+                                final
+                                structure x is constructed.
+                            </p>
+
+                        </figcaption>
+                    </figure>
+
+                    <h3 class="title is-4" id="decomposer"> Protein Decomposer</h3>
+                    <div class="content has-text-justified">
+                        <div
+                            style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
+                            $$
+                            q_{\text{decompose}} : \mathbf{x} \rightarrow X = \{ x^{1}, x^{2}, \ldots, x^{n} \}
+                            = \{ \text{Down}(\mathbf{x}, size(1)), \text{Down}(\mathbf{x}, size(2)), \ldots, \mathbf{x}
+                            \}
+                            $$
+
+                        </div>
+
+                        <p>
+                            The input structure <b>x</b> ∈ ℝ<sup>L×3</sup> is decomposed into multi-scale
+                            representations
+                            {x<sup>1</sup>, …, x<sup>n</sup>} through a scale configuration {size(1), size(2), …,
+                            size(n)},
+                            where <i>Down(x, size(i))</i> ∈ ℝ<sup>size(i)×3</sup> denotes a downsampling operation that
+                            interpolates <b>x</b> along the sequence dimension, leading to size(i) 3D centroids that
+                            provide a coarse structural layout.
+                        </p>
+                        <p>
+                            <strong>Scale configuration</strong> <b>S = {size(1), …, size(n)}</b> could be defined in
+                            two
+                            ways.
+                            When defined <i>by length</i>, scales are chosen as hyperparameters, e.g.,
+                            <b>S = {64, 128, 256}</b>. In this case, if <b>L</b> lies in <b>(size(i), size(i + 1)]</b>,
+                            the protein could be generated with only <b>i + 1</b> autoregressive steps.
+                            When defined <i>by ratio</i>, scales are adaptively determined based on protein length,
+                            e.g., <b>S = {L/4, L/2, L}</b>.
+                            Empirically, defining scales by length yields slightly better results in modeling data
+                            distributions. We adopt this as the default configuration.
+                            This design enables training PAR with flexible scale configurations.
+                            In the following sections, we describe how this hierarchy of representations are modeled
+                            using the autoregressive transformer and backbone decoder.
+                        </p>
+
+                        <div class="container is-max-desktop content">
+                            <figure class="table-container mt-5 mb-5">
+                                <figcaption class="has-text-centered is-size-6 mb-3">
+                                    <b>Table 1:</b>
+                                    <strong>Multi-scale formulation.</strong>
+                                    We ablate different strategies for scale configuration in downsampling.
+                                </figcaption>
+
+                                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" class="is-vcentered">Define scale</th>
+                                            <th colspan="1" class="has-text-centered">Designability<br>(% ↑)</th>
+                                            <th colspan="1" class="has-text-centered">sc-RMSD ↓</th>
+                                            <th colspan="2" class="has-text-centered">FPSD vs.</th>
+                                            <th rowspan="2" class="has-text-centered">fS<br>(C / A / T ↑)</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="has-text-centered">–</th>
+                                            <th class="has-text-centered">–</th>
+                                            <th class="has-text-centered">PDB ↓</th>
+                                            <th class="has-text-centered">AFDB ↓</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>{64, 256}</td>
+                                            <td class="has-text-centered">83.0</td>
+                                            <td class="has-text-centered">1.38</td>
+                                            <td class="has-text-centered">282.85</td>
+                                            <td class="has-text-centered">274.32</td>
+                                            <td class="has-text-centered">2.14 / 6.58 / 20.66</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{64, 128, 256}</td>
+                                            <td class="has-text-centered">85.0</td>
+                                            <td class="has-text-centered">1.39</td>
+                                            <td class="has-text-centered">279.63</td>
+                                            <td class="has-text-centered">267.35</td>
+                                            <td class="has-text-centered">2.15 / 6.52 / 20.35</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{64, 128, 192, 256}</td>
+                                            <td class="has-text-centered">77.8</td>
+                                            <td class="has-text-centered">1.55</td>
+                                            <td class="has-text-centered">296.70</td>
+                                            <td class="has-text-centered">282.69</td>
+                                            <td class="has-text-centered">2.05 / 6.04 / 18.69</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{64, 96, 128, 192, 256}</td>
+                                            <td class="has-text-centered">81.0</td>
+                                            <td class="has-text-centered">1.51</td>
+                                            <td class="has-text-centered">276.00</td>
+                                            <td class="has-text-centered">263.58</td>
+                                            <td class="has-text-centered">2.17 / 6.31 / 20.65</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{L/4, L/2, L}</td>
+                                            <td class="has-text-centered">86.4</td>
+                                            <td class="has-text-centered">1.49</td>
+                                            <td class="has-text-centered">310.64</td>
+                                            <td class="has-text-centered">298.30</td>
+                                            <td class="has-text-centered">2.00 / 5.87 / 18.91</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <h3 class="title is-4" id="encoder"> AR Transformer Encoder</h3>
+                    <div class="content has-text-justified">
+
+                        <p>
+                            To formulate the autoregressive order, we leverage the hierarchical nature of proteins,
+                            where a protein structure could span various levels of representations from coarse
+                            tertiary topology to the finest atomic coordinates. We adopt the next-scale prediction
+                            to model per-scale distribution based on prior coarser scales, which further ensures
+                            that the <i>bidirectional</i> dependencies of residues are modeled over each scale.
+                            We train our autoregressive model (Fig.&nbsp;2, left), a non-equivariant transformer
+                            <i>T<sub>θ</sub></i>, to produce scale-wise conditioning embedding
+                            <i>z<sup>i</sup></i> for scale <i>i</i> depending on prior scales
+                            <b>X&lt;i = x<sup>1</sup>, …, x<sup>i−1</sup></b>:
+                        </p>
+
+                        <div
+                            style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
+                            $$
+                            \mathbf{z}^i
+                            = \mathcal{T}_{\theta}(X^{\lt i})
+                            = \mathcal{T}_{\theta}\left(
+                            [\mathrm{bos},\ \mathrm{Up}(x^{1}, \mathrm{size}(2)),\ \ldots,\ \mathrm{Up}(x^{i-1},
+                            \mathrm{size}(i))]
+                            \right)
+                            $$
+                        </div>
+
+                        <p>
+                            where <b>bos</b> ∈ ℝ<sup>size(1)×3</sup> is a learnable embedding,
+                            and Up(x<sup>i−1</sup>, size(i)) interpolates x<sup>i−1</sup> to size(i) 3D points.
+                            All inputs are concatenated along the sequence dimension before being fed into
+                            T<sub>θ</sub>. The embedding z<sup>i</sup> is then used to condition the flow
+                            matching decoder to predict the backbone coordinates x<sup>i</sup>.
+                        </p>
+
+                        <!-- <div>
+          <img src="./static/img/1a26.jpeg" alt="Teaser" style="width:80%;">
+        </div> -->
+
+                    </div>
+
+                    <h3 class="title is-4" id="decoder"> Flow-based Atomic Decoder</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            We enable PAR to directly model Cα positions <b>x</b>, wherein
+                            p<sub>θ</sub>(x | z<sup>i</sup>) is parameterized by an atomic decoder
+                            v<sub>θ</sub> with flow matching, which maps standard normal distribution
+                            to the target data distribution. We condition v<sub>θ</sub> with scale-wise
+                            conditioning z<sup>i</sup> predicted by the AR Transformer T<sub>θ</sub> at
+                            each scale i (Fig. 2, right). During training, we sample the noise
+                            ε<sup>i</sup> ~ 𝒩(0, I) and a time variable t<sup>i</sup> ∈ [0, 1], and compute
+                            the interpolated sample as
+                            x<sub>t<sup>i</sup></sub><sup>i</sup> = t<sup>i</sup> · x<sup>i</sup> + (1 − t<sup>i</sup>)
+                            · ε<sup>i</sup>.
+                            As such, we can jointly train v<sub>θ</sub> and T<sub>θ</sub> with an FM objective:
+                        </p>
+
+                        <div
+                            style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
+                            $$
+                            \mathcal{L}(\theta)
+                            = \mathbb{E}_{x \sim p_D} \left[
+                            \frac{1}{n} \sum_{i=1}^{n}
+                            \frac{1}{\text{size}(i)}
+                            \mathbb{E}_{t^i \sim p(t^i),\, \epsilon^i \sim \mathcal{N}(0, I)}
+                            \left\|
+                            v_{\theta}\left(x_{t^i}^i,\, t^i,\, z^i \right)
+                            - \left(x^i - \epsilon^i\right)
+                            \right\|^2
+                            \right]
+                            $$
+                        </div>
+
+                        <p>
+                            where p<sub>D</sub>(<b>x</b>) denotes the training data distribution and p(t)
+                            denotes the t-sampling distribution in training.
+                            The conditioning embedding z<sup>i</sup> is injected into the atomic decoder network
+                            v<sub>θ</sub> through adaptive layer norms.
+                            <!-- We further concatenate a learnable scale embedding before feeding into the decoder. -->
+                        </p>
+
+
+                    </div>
+
+                    <h3 class="title is-4" id="bias"> Bias Mitigation</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            Training AR models typically uses <i>teacher forcing</i>, where ground-truth data are fed as
+                            context to stabilize learning.
+                            However, during inference the model is conditioned on its own predictions, creating a
+                            training-inference mismatch
+                            known as <i>exposure bias</i>. Errors can then accumulate across autoregressive steps,
+                            degrading output quality.
+                            Our preliminary study shows that teacher forcing greatly reduces the designability of
+                            generated structures.
+                            To mitigate this, we adapt <b>Noisy Context Learning (NCL)</b> (todo:cite?) and <b>Scheduled
+                                Sampling (SS)</b> (todo:cite?), techniques from language and
+                            image AR modeling, for PAR.
+                        </p>
+                        <p>
+                            <strong>Noisy Context Learning (NCL)</strong> adds noise to the prior-scale inputs during
+                            training to improve robustness,
+                            while <strong>Scheduled Sampling (SS)</strong> gradually replaces ground-truth context with
+                            model predictions to mitigate exposure bias.
+                        </p>
+                    </div>
+
+                    <div class="container is-max-desktop content">
+                        <figure class="table-container mt-5 mb-5">
+                            <figcaption class="has-text-centered is-size-6 mb-3">
+                                <b>Table 2:</b>
+                                <strong>Mitigating exposure bias for PAR.</strong>
+                                We adopted various training strategies to mitigate the exposure bias for multi-scale
+                                autoregressive modeling.
+                                These techniques are consistently effective in improving structure quality.
+                                NCL: Noisy Context Learning. SS: Scheduled Sampling.
+                            </figcaption>
+
+                            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th class="has-text-centered">Method</th>
+                                        <th class="has-text-centered">sc-RMSD ↓</th>
+                                        <th class="has-text-centered">FPSD vs.<br>(PDB / AFDB) ↓</th>
+                                        <th class="has-text-centered">fS<br>(C / A / T ↑)</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Teacher Forcing</td>
+                                        <td class="has-text-centered">2.20</td>
+                                        <td class="has-text-centered">99.66 / 37.64</td>
+                                        <td class="has-text-centered">2.53 / 5.56 / 29.67</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>+ NCL</td>
+                                        <td class="has-text-centered">1.58</td>
+                                        <td class="has-text-centered">89.70 / 23.69</td>
+                                        <td class="has-text-centered">2.54 / 5.85 / 28.37</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>+ NCL & SS</td>
+                                        <td class="has-text-centered">1.48</td>
+                                        <td class="has-text-centered">90.66 / 24.59</td>
+                                        <td class="has-text-centered">2.54 / 5.84 / 28.77</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                    </div>
+
+                    <h3 class="title is-4" id="inference"> Inference</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            At inference, the autoregressive transformer first produces
+                            z<sup>1</sup> at the coarsest scale, which conditions the flow matching decoder
+                            to generate x<sup>1</sup> either via ODE or SDE sampling.
+                            We upsample x<sup>1</sup> using Up(x<sup>1</sup>, size(2)) and send it back into the
+                            autoregressive transformer to predict the next scale embedding
+                            z<sup>2</sup>. This coarse-to-fine process iterates n times until the flow-matching
+                            model generates the full-resolution backbone x.
+                            KV cache is applied throughout the autoregressive process for efficiency.
+                        </p>
+
+                        <p>
+                            Leveraging the learned flow network v<sub>θ</sub>, sampling could be performed at each scale
+                            through ordinary differential equation (ODE)
+                            d x<sub>t</sub> = v<sub>θ</sub>(x<sub>t</sub>, t) d t,
+                            with the scale superscript i omitted for simplicity.
+                            Moreover, we could define the stochastic differential equation (SDE) for sampling:
+                        </p>
+
+                        <div
+                            style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
+                            $$
+                            d x_t
+                            = v_{\theta}(x_t, t)\, dt
+                            + g(t)\, s_{\theta}(x_t, t)\, dt
+                            + \sqrt{2 g(t)\, \gamma}\, d \mathcal{W}_t
+                            $$
+                        </div>
+
+                        <p>
+                            where <i>g</i>(t) is a time-dependent scaling function for the score function
+                            <i>s</i><sub>θ</sub>(x<sub>t</sub>, t), and the noise term γ is a noise scaling parameter,
+                            and 𝒲<sub>t</sub> is a standard Wiener process.
+                            The score function, defined as the gradient of the log-probability of the noisy data
+                            distribution at time <i>t</i>, could be computed as:
+                        </p>
+
+                        <div
+                            style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
+                            $$
+                            s_{\theta}(x_t, t)
+                            = \frac{t\, v_{\theta}(x_t, t) - x_t}{1 - t}
+                            $$
+                        </div>
+
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="title is-3" id="par"> Experiments</h2>
+
+                    <h3 class="title is-4" id="uncond"> Protein Backbone Generation</h3>
+                    
+                    <div class="content has-text-justified">
+
+                        <p>
+                            We compare 3-scale PAR’s (<i>S = {64, 128, 256}</i>) backbone generation performance with
+                            other
+                            baselines in Tab. 3, following the evaluation protocol in prior work.
+                            The baselines span three categories: frame-based diffusion methods, multimodal protein
+                            language
+                            models, and diffusion/flow-based Cα generators.
+                            We train both PAR and Proteina for 200k steps on our training data, and report results of
+                            other
+                            baselines for fair comparison.
+                            Evaluation metrics and baseline categories are detailed in §A.2–A.3.
+                            As shown in Tab. 3,
+
+                            <br>
+                            📌 <strong> Designability & FPSD:</strong> PAR generates samples that closely match the
+                            reference data distribution and maintain competitive designability.
+                            PAR achieves high FPSD and fold score (fS), which assess generation quality and diversity by
+                            comparing generated and reference distributions.
+                            When comparing to Proteina, which uses non-equivariant transformers, PAR more effectively
+                            models
+                            the data distribution, achieving a lower FPSD (231.5 vs. 271.3).
+                            By reducing the noise scaling parameter γ from 0.45 to 0.30 in Equation 6 for the SDE
+                            sampling,
+                            we can reduce sampling stochasticity and improve sample quality, improving the designability
+                            from 88.0% to 96.0% without additional training.
+
+                            <br>
+
+                            📌 <strong> Diversity:</strong> Moreover, PAR demonstrates better generation diversity among
+                            all
+                            methods.
+
+                            <br>
+
+                            📌 <strong> PDB Fine-tuning:</strong>
+                            Meanwhile, prior work also reports results using fine-tuned models on a PDB subset, which
+                            improves FPSD while maintaining strong designability.
+                            Following their approach, we curated a PDB subset of 21k designable samples and fine-tuned
+                            PAR
+                            on this subset for 5k steps.
+                            After PDB fine-tuning, PAR achieved improved performance across all metrics.
+                            <br>
+                        </p>
+                    </div>
+
+                    <div class="container is-max-desktop content">
+                        <figure class="table-container mt-5 mb-5">
+                            <figcaption class="has-text-centered is-size-6 mb-3">
+                                <b>Table 3:</b>
+                                <strong>Unconditional backbone generation performance.</strong>
+                                We follow FPSD and fS to evaluate the model’s ability to capture the data distribution.
+                                <span>PAR<sub>pdb</sub> denotes the 400M model finetuned on the PDB subset.</span>
+                            </figcaption>
+
+                            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th class="has-text-centered">Method</th>
+                                        <th class="has-text-centered">Designability<br>(% ↑)</th>
+                                        <th class="has-text-centered">sc-RMSD ↓</th>
+                                        <th class="has-text-centered">Diversity<br>TM-Sc. ↓</th>
+                                        <th class="has-text-centered">FPSD vs.<br>PDB ↓</th>
+                                        <th class="has-text-centered">FPSD vs.<br>AFDB ↓</th>
+                                        <th class="has-text-centered">fS<br>(C / A / T ↑)</th>
+                                        <th class="has-text-centered">Sec. Struct. %<br>(α / β)</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>FrameDiff (17M)</td>
+                                        <td class="has-text-centered">65.4</td>
+                                        <td class="has-text-centered">-</td>
+                                        <td class="has-text-centered">0.40</td>
+                                        <td class="has-text-centered">194.2</td>
+                                        <td class="has-text-centered">258.1</td>
+                                        <td class="has-text-centered">2.46 / 5.78 / 23.35</td>
+                                        <td class="has-text-centered">64.9 / 11.2</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>RFDiffusion (60M)</td>
+                                        <td class="has-text-centered">94.4</td>
+                                        <td class="has-text-centered">-</td>
+                                        <td class="has-text-centered">0.42</td>
+                                        <td class="has-text-centered">253.7</td>
+                                        <td class="has-text-centered">252.4</td>
+                                        <td class="has-text-centered">2.25 / 5.06 / 21.48</td>
+                                        <td class="has-text-centered">66.3 / 9.2</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>ESM3 (1.4B)</td>
+                                        <td class="has-text-centered">22.0</td>
+                                        <td class="has-text-centered">-</td>
+                                        <td class="has-text-centered">0.42</td>
+                                        <td class="has-text-centered">933.9</td>
+                                        <td class="has-text-centered">855.4</td>
+                                        <td class="has-text-centered">3.19 / 6.71 / 17.73</td>
+                                        <td class="has-text-centered">72.7 / 4.8</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Genie2 (16M)</td>
+                                        <td class="has-text-centered">95.2</td>
+                                        <td class="has-text-centered">-</td>
+                                        <td class="has-text-centered">0.38</td>
+                                        <td class="has-text-centered">350.0</td>
+                                        <td class="has-text-centered">313.8</td>
+                                        <td class="has-text-centered">1.55 / 3.66 / 11.65</td>
+                                        <td class="has-text-centered">72.7 / 4.8</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Proteina (200M)</td>
+                                        <td class="has-text-centered">92.8</td>
+                                        <td class="has-text-centered">1.14</td>
+                                        <td class="has-text-centered">0.37</td>
+                                        <td class="has-text-centered">282.3</td>
+                                        <td class="has-text-centered">285.6</td>
+                                        <td class="has-text-centered">2.17 / 6.22 / 21.48</td>
+                                        <td class="has-text-centered">66.3 / 9.2</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Proteina (400M)</td>
+                                        <td class="has-text-centered">92.6</td>
+                                        <td class="has-text-centered">1.09</td>
+                                        <td class="has-text-centered">0.37</td>
+                                        <td class="has-text-centered">271.3</td>
+                                        <td class="has-text-centered">272.6</td>
+                                        <td class="has-text-centered">2.13 / 6.14 / 21.48</td>
+                                        <td class="has-text-centered">65.1 / 9.7</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Proteina<sub>pdb</sub></td>
+                                        <td class="has-text-centered">94.8</td>
+                                        <td class="has-text-centered">1.02</td>
+                                        <td class="has-text-centered">0.36</td>
+                                        <td class="has-text-centered">181.5</td>
+                                        <td class="has-text-centered">257.3</td>
+                                        <td class="has-text-centered">2.64 / 6.48 / 30.10</td>
+                                        <td class="has-text-centered">46.9 / 17.6</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>PAR (200M)</td>
+                                        <td class="has-text-centered">87.0</td>
+                                        <td class="has-text-centered">1.33</td>
+                                        <td class="has-text-centered">0.37</td>
+                                        <td class="has-text-centered">252.0</td>
+                                        <td class="has-text-centered">237.9</td>
+                                        <td class="has-text-centered">2.11 / 6.14 / 19.22</td>
+                                        <td class="has-text-centered">64.3 / 8.8</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>PAR (400M)</td>
+                                        <td class="has-text-centered">88.0</td>
+                                        <td class="has-text-centered">1.28</td>
+                                        <td class="has-text-centered">0.36</td>
+                                        <td class="has-text-centered">231.5</td>
+                                        <td class="has-text-centered">211.8</td>
+                                        <td class="has-text-centered">2.20 / 6.50 / 20.96</td>
+                                        <td class="has-text-centered">63.8 / 10.4</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>γ = 0.30</td>
+                                        <td class="has-text-centered">96.0</td>
+                                        <td class="has-text-centered">1.01</td>
+                                        <td class="has-text-centered">0.39</td>
+                                        <td class="has-text-centered">313.9</td>
+                                        <td class="has-text-centered">296.4</td>
+                                        <td class="has-text-centered">2.24 / 6.60 / 16.71</td>
+                                        <td class="has-text-centered">52.3 / 13.1</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>PAR<sub>pdb</sub></td>
+                                        <td class="has-text-centered">96.6</td>
+                                        <td class="has-text-centered">1.04</td>
+                                        <td class="has-text-centered">0.43</td>
+                                        <td class="has-text-centered">161.0</td>
+                                        <td class="has-text-centered">228.4</td>
+                                        <td class="has-text-centered">2.57 / 7.42 / 23.61</td>
+                                        <td class="has-text-centered">50.2 / 16.7</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </figure>
+                    </div>
+
+                    <h3 class="title is-4" id="prompt"> 0-shot Prompted Generation</h3>
+                    
+                    <div class="content has-text-justified">
+                        <p>
+                            Proteins possess hierarchical and complex structures, which makes it challenging to directly specify 
+                            a target shape and design proteins accordingly. By leveraging PAR’s coarse-to-fine generation, 
+                            a simple prompt (e.g., 16 points) can specify a protein’s coarse layout, from which the model generates 
+                            the complete structure as shown in Fig. 3.
+                            </p>
+                            
+                            <p>
+                            In particular, we first obtain a 16-point input prompt either by downsampling a real protein structure 
+                            from the test set or by specifying the points manually (the top row in Fig. 3). Using a 5-scale PAR 
+                            (<i>S = {16, 32, 64, 128, 256}</i>), we initialize the first-scale prediction with the 16-point prompt 
+                            and autoregressively upsample until the full protein structure is generated, as illustrated in the bottom row of Fig. 3. 
+                            <br>
+                            📌 Following this process, PAR can generate a new structure that <strong>preserves the coarse structural layout</strong> 
+                            (first five examples), and <strong>explore entirely novel structures</strong> (last three examples). 
+                            <br>
+                            If desired, longer prompts (e.g., 32 points) could be specified to achieve more finer-grained control 
+                            over backbone generation.
+                            <br>
+                            </p>
+                    </div>
+
+                    <figure style="margin-top: 1rem; margin-bottom: 1rem;">
+                        <img src="./static/img/prompt_shape-crop.png" style="width:100%;">
+
+                        <!-- Add the figcaption below the image -->
+                        <figcaption class="has-text-centered is-size-7 mt-2">
+                            <p>
+                                <strong>Figure 3: Backbone generation with human prompt.</strong>
+                                Given a small number of points (e.g., 16) as prompt, PAR can generate protein backbones that adhere
+                                to the global arrangements specified by these points, <em>without</em> any finetuning.
+                                For visualization, input points are interpolated to match the length of the generated structure.
+                            </p>
+                                
+                        </figcaption>
+                    </figure>
+
+                    <h3 class="title is-4" id="motif"> 0-shot Motif Scaffolding</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            Besides the point-based layout, PAR can preserve finer-grained prompts like atomic coordinates. 
+                            Fig. 4 highlights the zero-shot motif scaffolding capabilities of PAR. 
+                            Using a 5-scale PAR, we downsample a raw protein structure into five scales and teacher-force the 
+                            ground-truth motif coordinates at each scale before propagating into the next scale. 
+                            To avoid clashes or discontinuities, we superimpose the ground-truth motif residues and the generated motif segments before replacement. 
+                            <br>
+                            📌 With no fine-tuning and no conditioning, PAR generates <strong>plausible scaffolds</strong> that preserve motif structures with high fidelity. 
+                            <br>
+                            This stands in contrast to diffusion or flow-based frameworks, which typically require fine-tuning on additional conditions such as masks or motif coordinates, or rely on decomposition strategies.
+                            </p>
+                            
+                            <p>
+                            Moreover, the generated scaffolds differ substantially from the input structure, showing that PAR generates structurally diverse scaffolds rather than merely copying. 
+                            For example, the leftmost example in Fig. 4 preserves the yellow motif helix while introducing new secondary structure elements such as β-sheet and loops, in contrast to the original helices.
+                            </p>
+                            
+                    </div>
+
+                    <figure style="margin-top: 1rem; margin-bottom: 1rem;">
+                        <img src="./static/img/motif_scaffold.png" style="width:100%;">
+
+                        <!-- Add the figcaption below the image -->
+                        <figcaption class="has-text-centered is-size-7 mt-2">
+                            <p>
+                                <strong>Figure 4: Zero-shot motif scaffolding.</strong>
+                                Given a motif structure, PAR can generate diverse, plausible scaffold structures that accurately preserve 
+                                the motif via teacher-forcing the motif coordinates at each scale, without additional conditioning or fine-tuning.
+                            </p>
+                                
+                        </figcaption>
+                    </figure>
+
+                    <h3 class="title is-4" id="scaling"> Scaling Effect of PAR</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            We examine the model’s behaviors by varying the backbone decoder’s size and number of training 
+                            steps in Fig. 5. We train PAR with 3 scales over three different model sizes with 60M, 200M, 
+                            and 400M parameters and three training durations over 200K, 400K, and 600K steps. 
+                            <br>
+                            📌 PAR demonstrates favorable behavior when scaling both model size and training duration,
+                            effectively <strong>improving its ability to capture the protein data distribution</strong> with FPSD scores of 
+                            187 against PDB and 170 against AFDB (first two columns in Fig. 5). 
+                            Further, the fS scores, which reflect <strong>quality and diversity</strong>, increase with larger model sizes 
+                            and greater computational budgets.
+                            <br>
+                            </p>
+                            
+                            <p>
+                            While extending training duration alone offers negligible gains, increasing model size 
+                            substantially enhances designability, leading to lower sc-RMSD values. Meanwhile, we empirically 
+                            observe that scaling the autoregressive transformer has minimal impacts on the evaluation results. 
+                            This is consistent with the module’s role to generate scale-wise conditioning to guide the backbone 
+                            generation, which does not require large model capacity. Similar trends have been observed in image 
+                            generation, where outputs from one scale are directly passed to the next without relying on additional 
+                            encoding modules. This allows us to prioritize increasing the backbone decoder’s model capacity that 
+                            effectively improves metrics.
+                            </p>
+                            
+                    </div>
+
+                    <figure style="margin-top: 1rem; margin-bottom: 1rem;">
+                        <img src="./static/img/scaling.png" style="width:100%;">
+
+                        <!-- Add the figcaption below the image -->
+                        <figcaption class="has-text-centered is-size-7 mt-2">
+                            <p>
+                                <strong>Figure 5: Scaling effects of PAR.</strong>
+                                Performance of four metrics over varying training steps and model sizes:
+                                (a) FPSD vs. PDB, 
+                                (b) FPSD vs. AFDB, 
+                                (c) fS(T), 
+                                (d) sc-RMSD.
+                                </p>
+                                
+                        </figcaption>
+                    </figure>
+
+                    <h3 class="title is-4" id="efficiency"> Inference Efficiency</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            While <strong>Tab. 3</strong> reports results using a uniform number of sampling steps across scales, 
+                            the multi-scale formulation of PAR actually offers advantages in sampling efficiency. 
+                            More specifically, (1) sampling at the coarser scale (e.g., first scale) is more efficient than 
+                            sampling at finer scales (e.g., 2nd scale) due to shorter sequence length; 
+                            (2) we can use fewer sampling steps at finer scales than coarser scales. 
+                            
+                            <br>
+
+                            📌 <strong> 2× Inference Speedup:</strong> As shown in Tab. 4, by using SDE sampling only at the first scale,
+                            and switching to ODE sampling for the remaining scales, PAR could dramatically reduce 
+                            the diffusion steps from 400 to 2 steps at the last two scales without harming designability (97%), 
+                            yielding a 2× inference speedup. 
+                            
+                            <br>
+
+                            This is possible because a high-quality coarse topology places 
+                            the model near high-density regions, enabling efficient refinement with ODE sampling.
+                        </p>
+                        
+                        <p>
+                            <!-- Naively reducing the SDE sampling steps significantly harms designability, dropping to 22%  -->
+                            <!-- when reducing steps to 50, as shown in Fig. 8.  -->
+                            This is consistent with the observation of single-scale models like Proteina, 
+                            where designability degrades to 89% when reducing SDE sampling steps to 200 in Tab. 4. 
+                            Crucially, SDE sampling at the first scale is necessary for establishing a reliable global topology, 
+                            given that ODE-only sampling exhibits poor designability. 
+                        </p>
+                        
+                        <p>
+                            Compared to the single-scale 400-step baseline, PAR achieves 1.96× and 2.5× sampling speedup 
+                            at length 150 and 200, respectively. 
+                            This improvement is driven by speeding up the final scales, where the longer sequence lengths 
+                            cause computational costs to grow quadratically in transformer architectures. 
+                            Moreover, the computational costs remain constant at the first scale because it has a fixed size 64, 
+                            even when generating longer sequences.
+                        </p>
+                        
+                    </div>
+
+                    <div class="container is-max-desktop content">
+                        <figure class="table-container mt-5 mb-5">
+                          <figcaption class="has-text-centered is-size-6 mb-3">
+                            <b>Table 4:</b>
+                            <strong>Performance of different sampling methods and steps.</strong>
+                            Combining SDE and ODE sampling across scales yields a 
+                            \(2.5\times\) inference speedup compared to the single-scale 
+                            400-step baseline, shown in the first and the last row.  
+                            We generate 100 samples at each length.
+                          </figcaption>
+                      
+                          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                            <thead>
+                              <tr>
+                                <th rowspan="2" class="is-vcentered has-text-centered">Sampling</th>
+                                <th rowspan="2" class="is-vcentered has-text-centered">Steps</th>
+                                <th colspan="2" class="has-text-centered">Length 150</th>
+                                <th colspan="2" class="has-text-centered">Length 200</th>
+                              </tr>
+                              <tr>
+                                <th class="has-text-centered">Time (s)</th>
+                                <th class="has-text-centered">Design. (%)</th>
+                                <th class="has-text-centered">Time (s)</th>
+                                <th class="has-text-centered">Design. (%)</th>
+                              </tr>
+                            </thead>
+                      
+                            <tbody>
+                              <!-- Proteina SDE -->
+                              <tr>
+                                <td rowspan="2">Proteina (SDE)</td>
+                                <td>0/0/400</td>
+                                <td class="has-text-centered">131</td>
+                                <td class="has-text-centered">97%</td>
+                                <td class="has-text-centered">170</td>
+                                <td class="has-text-centered">92%</td>
+                              </tr>
+                              <tr>
+                                <td>0/0/200</td>
+                                <td class="has-text-centered">67</td>
+                                <td class="has-text-centered">89%</td>
+                                <td class="has-text-centered">86</td>
+                                <td class="has-text-centered">80%</td>
+                              </tr>
+                      
+                              <!-- All SDE -->
+                              <tr>
+                                <td rowspan="2">All SDE</td>
+                                <td>400/400/400</td>
+                                <td class="has-text-centered">312</td>
+                                <td class="has-text-centered">97%</td>
+                                <td class="has-text-centered">351</td>
+                                <td class="has-text-centered">94%</td>
+                              </tr>
+                              <tr>
+                                <td>400/400/2</td>
+                                <td class="has-text-centered">184</td>
+                                <td class="has-text-centered">0%</td>
+                                <td class="has-text-centered">–</td>
+                                <td class="has-text-centered">–</td>
+                              </tr>
+                      
+                              <!-- All ODE -->
+                              <tr>
+                                <td>All ODE</td>
+                                <td>400/400/400</td>
+                                <td class="has-text-centered">312</td>
+                                <td class="has-text-centered">28%</td>
+                                <td class="has-text-centered">–</td>
+                                <td class="has-text-centered">–</td>
+                              </tr>
+                      
+                              <!-- S/S/O -->
+                              <tr>
+                                <td rowspan="2">S/S/O</td>
+                                <td>400/400/400</td>
+                                <td class="has-text-centered">312</td>
+                                <td class="has-text-centered">98%</td>
+                                <td class="has-text-centered">–</td>
+                                <td class="has-text-centered">–</td>
+                              </tr>
+                              <tr>
+                                <td>400/400/2</td>
+                                <td class="has-text-centered">184</td>
+                                <td class="has-text-centered">99%</td>
+                                <td class="has-text-centered">186</td>
+                                <td class="has-text-centered">91%</td>
+                              </tr>
+                      
+                              <!-- S/O/O -->
+                              <tr>
+                                <td rowspan="2">S/O/O</td>
+                                <td>400/400/400</td>
+                                <td class="has-text-centered">312</td>
+                                <td class="has-text-centered">96%</td>
+                                <td class="has-text-centered">–</td>
+                                <td class="has-text-centered">–</td>
+                              </tr>
+                              <tr>
+                                <td>400/2/2</td>
+                                <td class="has-text-centered"><b>67</b></td>
+                                <td class="has-text-centered">97%</td>
+                                <td class="has-text-centered"><b>68</b></td>
+                                <td class="has-text-centered">94%</td>
+                              </tr>
+                      
+                            </tbody>
+                          </table>
+                        </figure>
+                      </div>
+                      
+
+                    <h3 class="title is-4" id="attn"> Interpreting AR Transformer Attention</h3>
+                    <div class="content has-text-justified">
+
+                        <p>
+                            We visualize the attention maps of the autoregressive transformer at each scale (Fig. 6). 
+                            We average the attention scores within each scale, normalize them such that the scores across scales sum to 1, 
+                            and average them over 50 test samples to obtain the scale-level attention distribution during inference.
+                            We summarize three key observations:
+                            </p>
+                            
+                            <p>
+                            <i>(i)</i> Most scales barely attend to the first scale, since the input to this scale, a <code>bos</code> token, carries little structural signal.  
+                            </p>
+                            
+                            <p>
+                            <i>(ii)</i> Each scale primarily attends to the previous scale, which typically contains richer contextual and structural information.
+                            </p>
+                            
+                            <p>
+                            <i>(iii)</i> Despite focusing most heavily on the current scale, the model still retains non-negligible attention to earlier scales.
+                            <br>
+                            📌 This indicates that PAR effectively integrates information across multiple scales and <strong>maintains structural consistency</strong> during generation.
+                            <br>
+                            </p>
+                            
+                    </div>
+
+                    <figure style="margin-top: 1rem; margin-bottom: 1rem;">
+                        <img src="./static/img/attn_map.png" style="width:80%;">
+
+                        <!-- Add the figcaption below the image -->
+                        <figcaption class="has-text-centered is-size-7 mt-2">
+                            <p>
+                                <strong>Figure 6:</strong> Visualization of the average attention scores in PAR autoregressive transformer over 5 scales,
+                                obtained from samples with lengths in (128, 256). 
+                                We provide attention map visualization for shorter proteins in §C.3.
+                            </p>                            
+                                
+                        </figcaption>
+                    </figure>
+
+                </div>
+
+                <h2 class="title is-3" id="conclusion"> Conclusion </h2>
+                <div class="content has-text-justified">
+                    <p>
+                        PAR is the first multi-scale autoregressive model for protein backbone generation, offering a general framework that includes flow-based methods as a special case. PAR addressed limitations of standard autoregressive models, such as unidirectional dependency, discretization, and exposure bias. Our method robustly models structures over multiple granularities and in turn enables strong zero-shot generalization. This capability includes coarse-prompted conditional generation using points (e.g., 16 points) as structural layout and finer-grained controls such as atomic-coordinate-based motif scaffolding. For unconditional backbone generation, PAR exhibits powerful distributional fidelity and generation quality. The analysis of scale-level attention map provides additional insights into how the multi-scale formulation operates.
+                        </p>
+                        
+                        <p>
+                        We hope that PAR unlocks the potential of autoregressive modeling for protein design. Some promising open directions include:
+                        </p>
+                        
+                        <p>
+                        (1) <strong>Conformational dynamics modeling.</strong> PAR can, in principle, perform zero-shot modeling of conformational distributions: we downsample a structure and upsample it with PAR to mimic local molecular dynamics. We leave this exciting application for future research.
+                        </p>
+                        
+                        <p>
+                        (2) <strong>All-atom modeling.</strong> This work focuses on backbone Cα atoms to prioritize autoregressive design, but it is natural to extend to full-atom representations. The multi-scale framework offers an advantage for flexible zero-shot prompt-based all-atom designs.
+                        </p>
+                        
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <style>
+        .video-grid-two-cols {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* Two columns */
+            gap: 10px;
+            /* Gap between videos */
+            width: 60%;
+            /* Set the container width to 60% */
+            margin: 0 auto;
+            /* Center the container horizontally */
+        }
+
+        .video-grid-two-cols video {
+            width: 100%;
+            /* Videos fill the container width */
+            height: auto;
+        }
+    </style>
+
+
 
 
     <!-- <section class="section" id="Acknowledgements">
@@ -886,34 +1264,31 @@
 
 
     <section class="section" id="BibTeX">
-      <div class="container is-max-desktop content">
-        <h2 class="title is-3" id="Citation">BibTeX</h2>
-        <pre><code>
-      @article{hsieh2025dplm2-1,
-          title={Elucidating the Design Space of Multimodal Protein Language Models},
-          author={Cheng-Yen Hsieh, Xinyou Wang, Daiheng Zhang, Dongyu Xue, Fei Ye, Shujian Huang, Zaixiang Zheng, Quanquan Gu},
-          journal={arXiv preprint arXiv:2504.11454},
-          year={2025},
-          url={https://arxiv.org/abs/2504.11454}, 
+        <div class="container is-max-desktop content">
+            <h2 class="title is-3" id="citation">BibTeX</h2>
+            <pre><code>
+      @article{par,
+          title={Protein Autoregressive Modeling via Multiscale Structure Generation},
       }
           </code></pre>
-      </div>
+        </div>
     </section>
 
 
 
     <footer class="footer">
-      <div align="center" class="container">
-        <div class="columns is-centered">
-          <div class="content">
-            This website is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer.
-              <br> This website is licensed under a <a rel="license"
-                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-                Commons Attribution-ShareAlike 4.0 International License</a>.
-          </div>
+        <div align="center" class="container">
+            <div class="columns is-centered">
+                <div class="content">
+                    This website is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+                    You are free to borrow the source code of this website, we just ask that you link back to this page
+                    in the footer.
+                    <br> This website is licensed under a <a rel="license"
+                        href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                        Commons Attribution-ShareAlike 4.0 International License</a>.
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
 
 
