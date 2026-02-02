@@ -214,12 +214,12 @@
         <div class="container is-max-desktop">
             <!-- Abstract. -->
             <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <figure style="margin-top: -1rem; margin-bottom: 1rem;">
+                <div class="column is-full">
+                    <figure class="teaser-figure" style="margin-top: -1rem; margin-bottom: 1rem;">
+                        <img src="./static/img/PAR_performance_teaser.png"
+                            alt="Performance Teaser" style="width: calc(80% - 0.5rem);">
                         <img src="./static/img/generation_over_scale_with_rmsd_4_samples.png"
-                            alt="Multi-scale Generation" style="width:100%;">
-
-                        <!-- Add the figcaption below the image -->
+                            alt="Multi-scale Generation" style="width: calc(80% - 0.5rem);">
                     </figure>
                 </div>
             </div>
@@ -271,6 +271,31 @@
         }
     </style>
 
+    <style>
+        .teaser-figure {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem; /* horizontal spacing between images */
+            background-color: #fff;
+            /* overflow-x: auto; */
+        }
+        .teaser-figure img {
+            margin: 0;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .teaser-figure {
+                flex-direction: column;
+            }
+            .teaser-figure img {
+                width: 100% !important;
+            }
+        }
+    </style>
+
     <section>
         <div class="container is-max-desktop content">
             <div class="column is-full-width">
@@ -297,6 +322,8 @@
                             <li><a href="#motif">Zero-Shot Motif Scaffolding</a></li>
                             <li><a href="#scaling">Scaling Effects of PAR</a></li>
                             <li><a href="#efficiency">Efficient Sampling</a></li>
+                            <li><a href="#multi-scale-ablation">Multi-Scale Formulation</a></li>
+                            <li><a href="#expt-exposure-bias">Mitigating Exposure Bias</a></li>
                             <li><a href="#attn">Interpreting Multi-Scale PAR</a></li>
                         </ul>
                         <li><a href="#conclusion">Conclusion</a></li>
@@ -330,7 +357,7 @@
                             alt="Multi-scale Generation" style="width:100%;">
 
                         <!-- Add the figcaption below the image -->
-                        <figcaption class="has-text-centered is-size-7 mt-2">
+                        <figcaption class="has-text-centered is-size-6 mb-3">
                             <strong>Figure 1: Multi-scale Generation with PAR.</strong>
                         </figcaption>
                     </figure>
@@ -365,15 +392,8 @@
 
                 <div>
                     <h2 class="title is-3" id="par"> Protein Autoregressive Modeling</h2>
-                    <figure style="margin-top: 5rem; margin-bottom: 1rem;">
-                        <img src="./static/img/par_with_example.png" style="width:100%;">
-
-                        <!-- Add the figcaption below the image -->
-                        <figcaption class="is-size-7 mt-2">
-                            <strong>Figure 2: Model Architecture of PAR.</strong>  
-                            PAR comprises the autoregressive (AR) transformer 
-                            <span class="katex">\(\mathcal{T}_{\theta}\)</span> (left) and the flow-based backbone decoder 
-                            <span class="katex">\(\mathcal{v}_{\theta}\)</span> (right). During training, we downsample a backbone 
+                    <p>
+                        During training, we downsample a backbone 
                             <span class="katex">\(\mathbf{x} \in \mathbb{R}^{L \times 3}\)</span> into multi-scale representations 
                             <span class="katex">\(\{ \mathbf{x}^{1}, \dots, \mathbf{x}^{n} \}\)</span>.  
                             The <em>AR transformer</em> performs next-scale prediction, producing conditional embeddings 
@@ -384,6 +404,16 @@
                             <span class="katex">\(\mathbf{z}^{i}\)</span>. At inference, PAR autoregressively generates 
                             <span class="katex">\(\mathbf{x}^{i}\)</span> until the final structure 
                             <span class="katex">\(\mathbf{x}\)</span> is constructed.
+                    </p>
+                    <figure style="margin-top: 5rem; margin-bottom: 1rem;">
+                        <img src="./static/img/par_with_example.png" style="width:100%;">
+
+                        <!-- Add the figcaption below the image -->
+                        <figcaption class="has-text-centered is-size-6 mb-3">
+                            <strong>Figure 2: Model Architecture of PAR.</strong>  
+                            PAR comprises the autoregressive (AR) transformer 
+                            <span class="katex">\(\mathcal{T}_{\theta}\)</span> (left) and the flow-based backbone decoder 
+                            <span class="katex">\(\mathcal{v}_{\theta}\)</span> (right).
                           </figcaption>
                     </figure>
 
@@ -397,8 +427,8 @@
                         <div
                             style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
                             $$
-                            q_{\text{decompose}} : \mathbf{x} \rightarrow X = \{ x^{1}, x^{2}, \ldots, x^{n} \}
-                            = \{ \text{Down}(\mathbf{x}, size(1)), \text{Down}(\mathbf{x}, size(2)), \ldots, \mathbf{x}
+                            q_{\text{decompose}} : \mathbf{x} \rightarrow X = \{ \mathbf{x}^{1}, \mathbf{x}^{2}, \ldots, \mathbf{x}^{n} \}
+                            = \{ \text{Down}(\mathbf{x}, \texttt{size(1)}), \text{Down}(\mathbf{x}, \texttt{size(2)}), \ldots, \mathbf{x}
                             \}
                             $$
 
@@ -435,81 +465,6 @@
                           </p>
                           
                           
-
-                        <div class="container is-max-desktop content">
-                            <figure class="table-container mt-5 mb-5">
-                                <figcaption class="has-text-centered is-size-6 mb-3">
-                                    <b>Table 1:</b>
-                                    <strong>Multi-scale formulation.</strong>
-                                    We ablate different strategies for scale configuration in downsampling.
-                                </figcaption>
-
-                                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-                                    <thead>
-                                        <tr>
-                                            <th rowspan="2" class="is-vcentered">Define scale</th>
-                                            <th colspan="1" class="has-text-centered">Designability<br>(% ↑)</th>
-                                            <th colspan="1" class="has-text-centered">sc-RMSD ↓</th>
-                                            <th colspan="2" class="has-text-centered">FPSD vs.</th>
-                                            <th rowspan="2" class="has-text-centered">fS<br>(C / A / T ↑)</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="has-text-centered">–</th>
-                                            <th class="has-text-centered">–</th>
-                                            <th class="has-text-centered">PDB ↓</th>
-                                            <th class="has-text-centered">AFDB ↓</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        <tr>
-                                            <td>{64, 256}</td>
-                                            <td class="has-text-centered">83.0</td>
-                                            <td class="has-text-centered">1.38</td>
-                                            <td class="has-text-centered">282.85</td>
-                                            <td class="has-text-centered">274.32</td>
-                                            <td class="has-text-centered">2.14 / 6.58 / 20.66</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>{64, 128, 256}</td>
-                                            <td class="has-text-centered">85.0</td>
-                                            <td class="has-text-centered">1.39</td>
-                                            <td class="has-text-centered">279.63</td>
-                                            <td class="has-text-centered">267.35</td>
-                                            <td class="has-text-centered">2.15 / 6.52 / 20.35</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>{64, 128, 192, 256}</td>
-                                            <td class="has-text-centered">77.8</td>
-                                            <td class="has-text-centered">1.55</td>
-                                            <td class="has-text-centered">296.70</td>
-                                            <td class="has-text-centered">282.69</td>
-                                            <td class="has-text-centered">2.05 / 6.04 / 18.69</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>{64, 96, 128, 192, 256}</td>
-                                            <td class="has-text-centered">81.0</td>
-                                            <td class="has-text-centered">1.51</td>
-                                            <td class="has-text-centered">276.00</td>
-                                            <td class="has-text-centered">263.58</td>
-                                            <td class="has-text-centered">2.17 / 6.31 / 20.65</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>{L/4, L/2, L}</td>
-                                            <td class="has-text-centered">86.4</td>
-                                            <td class="has-text-centered">1.49</td>
-                                            <td class="has-text-centered">310.64</td>
-                                            <td class="has-text-centered">298.30</td>
-                                            <td class="has-text-centered">2.00 / 5.87 / 18.91</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </figure>
-                        </div>
                     </div>
 
                     <h3 class="title is-4" id="backbone_autoregressive"> Coarse-to-Fine Backbone Autoregressive Modeling</h3>
@@ -541,7 +496,7 @@
                             of residues are captured at each scale. We train our autoregressive model (Fig.&nbsp;2, left), 
                             a non-equivariant transformer <span class="math">𝒯<sub>θ</sub></span>, to produce scale-wise conditioning embeddings 
                             <span class="katex">\(\mathbf{z}^{i}\)</span> for scale <em>i</em> depending on prior scales 
-                            <span class="katex">\(\mathbf{X^{\lt i}}=\{x^{1}, \ldots, x^{i-1}\}\)</span>:
+                            <span class="katex">\(\mathbf{X^{\lt i}}=\{\mathbf{x}^{1}, \ldots, \mathbf{x}^{i-1}\}\)</span>:
                           </p>
                           
 
@@ -551,15 +506,15 @@
                             \mathbf{z}^i
                             = \mathcal{T}_{\theta}(X^{\lt i})
                             = \mathcal{T}_{\theta}\left(
-                            [\mathrm{bos},\ \mathrm{Up}(x^{1}, \mathrm{size}(2)),\ \ldots,\ \mathrm{Up}(x^{i-1},
-                            \mathrm{size}(i))]
+                            [\mathrm{bos},\ \mathrm{Up}(\mathbf{x}^{1}, \texttt{size(2)}),\ \ldots,\ \mathrm{Up}(\mathbf{x}^{i-1},
+                            \texttt{size(i)})]
                             \right)
                             $$
                         </div>
 
                         <p>
                             where <span class="katex">\(\mathbf{bos} \in \mathbb{R}^{\texttt{size(1)} \times 3}\)</span> is a learnable embedding,  
-                            and <span class="katex">\(\texttt{Up}(\mathbf{x}^{i-1}, \texttt{size(i)})\)</span> interpolates 
+                            and <span class="katex">\(\mathrm{Up}(\mathbf{x}^{i-1}, \texttt{size(i)})\)</span> interpolates 
                             <span class="katex">\(\mathbf{x}^{i-1}\)</span> to <span class="katex">\(\texttt{size(i)}\)</span> 3D points.  
                             All inputs are concatenated along the sequence dimension before being fed into 
                             <span class="katex">\(\mathcal{T}_{\theta}\)</span>.  
@@ -601,13 +556,13 @@
                             style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
                             $$
                             \mathcal{L}(\theta)
-                            = \mathbb{E}_{x \sim p_D} \left[
-                            \frac{1}{n} \sum_{i=1}^{n}
-                            \frac{1}{\text{size}(i)}
-                            \mathbb{E}_{t^i \sim p(t^i),\, \epsilon^i \sim \mathcal{N}(0, I)}
+                            = \mathbb{E}_{\mathbf{x} \sim p_D} \left[
+                            \frac{1}{n} \sum_{i=1}^{\texttt{n}}
+                            \frac{1}{\texttt{size}(i)}
+                            \mathbb{E}_{t^i \sim p(t^i),\, \mathbf{\epsilon}^i \sim \mathcal{N}(0, I)}
                             \left\|
-                            v_{\theta}\left(x_{t^i}^i,\, t^i,\, z^i \right)
-                            - \left(x^i - \epsilon^i\right)
+                            v_{\theta}\left(\mathbf{x}_{t^i}^i,\, t^i,\, \mathbf{z}^i \right)
+                            - \left(\mathbf{x}^i - \mathbf{\epsilon}^i\right)
                             \right\|^2
                             \right]
                             $$
@@ -642,49 +597,6 @@
                         </p>
                     </div>
 
-                    <div class="container is-max-desktop content">
-                        <figure class="table-container mt-5 mb-5">
-                            <figcaption class="has-text-centered is-size-6 mb-3">
-                                <b>Table 2:</b>
-                                <strong>Mitigating exposure bias for PAR.</strong>
-                            </figcaption>
-
-                            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-                                <thead>
-                                    <tr>
-                                        <th class="has-text-centered">Method</th>
-                                        <th class="has-text-centered">sc-RMSD ↓</th>
-                                        <th class="has-text-centered">FPSD vs.<br>(PDB / AFDB) ↓</th>
-                                        <th class="has-text-centered">fS<br>(C / A / T ↑)</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>Teacher Forcing</td>
-                                        <td class="has-text-centered">2.20</td>
-                                        <td class="has-text-centered">99.66 / 37.64</td>
-                                        <td class="has-text-centered">2.53 / 5.56 / 29.67</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>+ NCL</td>
-                                        <td class="has-text-centered">1.58</td>
-                                        <td class="has-text-centered">89.70 / 23.69</td>
-                                        <td class="has-text-centered">2.54 / 5.85 / 28.37</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>+ NCL & SS</td>
-                                        <td class="has-text-centered">1.48</td>
-                                        <td class="has-text-centered">90.66 / 24.59</td>
-                                        <td class="has-text-centered">2.54 / 5.84 / 28.77</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </figure>
-                    </div>
-
                     <h3 class="title is-4" id="inference"> Inference</h3>
                     <div class="content has-text-justified">
                         <p>
@@ -713,16 +625,16 @@
                         <div
                             style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
                             $$
-                            d x_t
-                            = v_{\theta}(x_t, t)\, dt
-                            + g(t)\, s_{\theta}(x_t, t)\, dt
+                            d \mathbf{x}_t
+                            = v_{\theta}(\mathbf{x}_t, t)\, dt
+                            + g(t)\, s_{\theta}(\mathbf{x}_t, t)\, dt
                             + \sqrt{2 g(t)\, \gamma}\, d \mathcal{W}_t
                             $$
                         </div>
 
                         <p>
                             where <span class="katex">\(g(t)\)</span> is a time-dependent scaling function for the score function
-                            <span class="katex">\(s_{\theta}(x_t, t)\)</span>, and the noise term <span class="katex">\(\gamma\)</span> is a noise scaling parameter,
+                            <span class="katex">\(s_{\theta}(\mathbf{x}_t, t)\)</span>, and the noise term <span class="katex">\(\gamma\)</span> is a noise scaling parameter,
                             and <span class="katex">\(\mathcal{W}_t\)</span> is a standard Wiener process.
                             The score function, defined as the gradient of the log-probability of the noisy data
                             distribution at time <span class="katex">\(t\)</span>, could be computed as:
@@ -731,8 +643,8 @@
                         <div
                             style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
                             $$
-                            s_{\theta}(x_t, t)
-                            = \frac{t\, v_{\theta}(x_t, t) - x_t}{1 - t}
+                            s_{\theta}(\mathbf{x}_t, t)
+                            = \frac{t\, v_{\theta}(\mathbf{x}_t, t) - \mathbf{x}_t}{1 - t}
                             $$
                         </div>
 
@@ -747,9 +659,9 @@
                     <div class="content has-text-justified">
 
                         <p>
-                            We compare PAR with other baselines on unconditional backbone generation benchmark as shown in Table 3.
+                            We compare PAR with other baselines on unconditional backbone generation benchmark as shown in Table 1.
                             To better reflect the goal of unconditional protein generation as modeling the full data distribution, we adopt <strong>FPSD</strong>, which jointly measures quality and diversity by comparing generated and reference distributions, analogous to FID in image generation.
-                            As shown in <strong>Table 3</strong>, <strong>PAR</strong> generates samples that closely match the reference data distribution and maintains competitive designability.
+                            As shown in <strong>Table 1</strong>, <strong>PAR</strong> generates samples that closely match the reference data distribution and maintains competitive designability.
                             On FPSD, <strong>PAR</strong> achieves scores of <span class="katex">211.8</span> against <strong>AFDB</strong> and <span class="katex">231.5</span> against <strong>PDB</strong>.
                             By reducing the noise scaling parameter <span class="katex">\(\gamma\)</span> from <span class="katex">0.45</span> to <span class="katex">0.3</span> in SDE sampling, we reduce sampling stochasticity and further improve sample quality, improving the designability from <span class="katex">\(88.0\%\)</span> to <span class="katex">\(96.0\%\)</span>.
                             After fine-tuning, <strong>PAR</strong> achieved <span class="katex">\(96.6\%\)</span> designability and <strong>161.0</strong> FPSD against the <strong>PDB</strong>, highlighting its superior distributional fidelity compared to pure diffusion-based baselines.
@@ -760,7 +672,7 @@
                     <div class="container is-max-desktop content">
                         <figure class="table-container mt-5 mb-5">
                           <figcaption class="has-text-centered is-size-6 mb-3">
-                            <b>Table 3:</b>
+                            <b>Table 1:</b>
                             <strong>Unconditional backbone generation performance.</strong>
                             We follow FPSD and fS to evaluate the model's ability to capture the data distribution.
                             <span>PAR<sub>pdb</sub> denotes the 400M model finetuned on the PDB subset.</span>
@@ -793,7 +705,7 @@
                         <img src="./static/img/prompt_shape-crop.png" style="width:100%;">
 
                         <!-- Add the figcaption below the image -->
-                        <figcaption class="has-text-centered is-size-7 mt-2">
+                        <figcaption class="has-text-centered is-size-6 mb-3">
                             <p>
                                 <strong>Figure 3: Backbone generation with human prompt.</strong>
                                 Given a small number of points (e.g., 16) as prompt, PAR can generate protein backbones that adhere
@@ -830,7 +742,7 @@
                         <img src="./static/img/motif_scaffold.png" style="width:100%;">
 
                         <!-- Add the figcaption below the image -->
-                        <figcaption class="has-text-centered is-size-7 mt-2">
+                        <figcaption class="has-text-centered is-size-6 mb-3">
                             <p>
                                 <strong>Figure 4: Zero-shot motif scaffolding.</strong>
                                 Given a motif structure, PAR can generate diverse, plausible scaffold structures that accurately preserve 
@@ -865,7 +777,7 @@
                         <img src="./static/img/scaling.png" style="width:100%;">
 
                         <!-- Add the figcaption below the image -->
-                        <figcaption class="has-text-centered is-size-7 mt-2">
+                        <figcaption class="has-text-centered is-size-6 mb-3">
                             <p>
                                 <strong>Figure 5: Scaling effects of PAR.</strong>
                                 Performance of four metrics over varying training steps and model sizes:
@@ -920,7 +832,7 @@
                     <div class="container is-max-desktop content">
                         <figure class="table-container mt-5 mb-5">
                           <figcaption class="has-text-centered is-size-6 mb-3">
-                            <b>Table 4:</b>
+                            <b>Table 2:</b>
                             <strong>Performance of different sampling methods and steps.</strong>
                             Combining SDE and ODE sampling across scales yields a 
                             \(2.5\times\) inference speedup compared to the single-scale 
@@ -1028,7 +940,145 @@
                         </figure>
                       </div>
                       
+                      <h3 class="title is-4" id="multi-scale-ablation"> Multi-Scale Formulation</h3>
+                      <p>
+                        We ablate the effect of defining scale <em>by length</em> versus <em>ratio</em>.
+                        Table 3 shows that under comparable levels of upsampling ratio 
+                        (<span class="katex">\(\{64, 128, 256\}\)</span> and <span class="katex">\(\{L/4, L/2, L\}\)</span>), 
+                        the <em>by-length</em> strategy outperforms <em>by-ratio</em>.
+                        </p>
+                        <p>
+                            Meanwhile, PAR obtains better designability and FPSD when increasing from two scales to three scales. 
+                            Beyond this point, increasing the scale configurations to four and five scales results in degraded designability, 
+                            potentially due to error accumulation and exposure bias. These results support our choice of adopting the 3-scale PAR as the default. 
+                            All results are obtained using the 60M model.
+                        </p>
+                    
+                      <div class="container is-max-desktop content">
+                        <figure class="table-container mt-5 mb-5">
+                            <figcaption class="has-text-centered is-size-6 mb-3">
+                                <b>Table 3:</b>
+                                <strong>Multi-scale formulation.</strong>
+                                We ablate different strategies for scale configuration in downsampling using a smaller PAR (60M).
+                            </figcaption>
 
+                            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" class="is-vcentered">Define scale</th>
+                                        <th colspan="1" class="has-text-centered">Designability<br>(% ↑)</th>
+                                        <th colspan="1" class="has-text-centered">sc-RMSD ↓</th>
+                                        <th colspan="2" class="has-text-centered">FPSD vs.</th>
+                                        <th rowspan="2" class="has-text-centered">fS<br>(C / A / T ↑)</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="has-text-centered">–</th>
+                                        <th class="has-text-centered">–</th>
+                                        <th class="has-text-centered">PDB ↓</th>
+                                        <th class="has-text-centered">AFDB ↓</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>{64, 256}</td>
+                                        <td class="has-text-centered">83.0</td>
+                                        <td class="has-text-centered">1.38</td>
+                                        <td class="has-text-centered">282.85</td>
+                                        <td class="has-text-centered">274.32</td>
+                                        <td class="has-text-centered">2.14 / 6.58 / 20.66</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>{64, 128, 256}</td>
+                                        <td class="has-text-centered">85.0</td>
+                                        <td class="has-text-centered">1.39</td>
+                                        <td class="has-text-centered">279.63</td>
+                                        <td class="has-text-centered">267.35</td>
+                                        <td class="has-text-centered">2.15 / 6.52 / 20.35</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>{64, 128, 192, 256}</td>
+                                        <td class="has-text-centered">77.8</td>
+                                        <td class="has-text-centered">1.55</td>
+                                        <td class="has-text-centered">296.70</td>
+                                        <td class="has-text-centered">282.69</td>
+                                        <td class="has-text-centered">2.05 / 6.04 / 18.69</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>{64, 96, 128, 192, 256}</td>
+                                        <td class="has-text-centered">81.0</td>
+                                        <td class="has-text-centered">1.51</td>
+                                        <td class="has-text-centered">276.00</td>
+                                        <td class="has-text-centered">263.58</td>
+                                        <td class="has-text-centered">2.17 / 6.31 / 20.65</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>{L/4, L/2, L}</td>
+                                        <td class="has-text-centered">86.4</td>
+                                        <td class="has-text-centered">1.49</td>
+                                        <td class="has-text-centered">310.64</td>
+                                        <td class="has-text-centered">298.30</td>
+                                        <td class="has-text-centered">2.00 / 5.87 / 18.91</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                    </div>
+                    
+                    <h3 class="title is-4" id="expt-exposure-bias"> Mitigating Exposure Bias</h3>
+                    <p>
+                    Table 4 shows that noisy context learning
+                    effectively improves the sc-RMSD of the generated structure from 2.20 to 1.58, and reduces FPSD against
+                    AFDB to 23.69 when using ODE sampling. The designability further improved to 1.48 along with scheduled sampling, 
+                    which makes the training process more aligned with the inference scenario. Results are obtained
+                    with 60M PAR trained for 100K steps.
+                    </p>
+                    <div class="container is-max-desktop content">
+                        <figure class="table-container mt-5 mb-5">
+                            <figcaption class="has-text-centered is-size-6 mb-3">
+                                <b>Table 4:</b>
+                                <strong>Mitigating exposure bias for PAR.</strong>
+                            </figcaption>
+
+                            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th class="has-text-centered">Method</th>
+                                        <th class="has-text-centered">sc-RMSD ↓</th>
+                                        <th class="has-text-centered">FPSD vs.<br>(PDB / AFDB) ↓</th>
+                                        <th class="has-text-centered">fS<br>(C / A / T ↑)</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Teacher Forcing</td>
+                                        <td class="has-text-centered">2.20</td>
+                                        <td class="has-text-centered">99.66 / 37.64</td>
+                                        <td class="has-text-centered">2.53 / 5.56 / 29.67</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>+ NCL</td>
+                                        <td class="has-text-centered">1.58</td>
+                                        <td class="has-text-centered">89.70 / 23.69</td>
+                                        <td class="has-text-centered">2.54 / 5.85 / 28.37</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>+ NCL & SS</td>
+                                        <td class="has-text-centered">1.48</td>
+                                        <td class="has-text-centered">90.66 / 24.59</td>
+                                        <td class="has-text-centered">2.54 / 5.84 / 28.77</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </figure>
+                    </div>
                     <h3 class="title is-4" id="attn"> Interpreting Multi-Scale PAR</h3>
                     <div class="content has-text-justified">
 
@@ -1056,12 +1106,13 @@
                             </p>
                             
                     </div>
+                    
 
                     <figure style="margin-top: 1rem; margin-bottom: 1rem;">
                         <img src="./static/img/attn_map.png" style="width:80%;">
 
                         <!-- Add the figcaption below the image -->
-                        <figcaption class="has-text-centered is-size-7 mt-2">
+                        <figcaption class="has-text-centered is-size-6 mb-3">
                             <p>
                                 <strong>Figure 6:</strong> Visualization of the average attention scores in PAR autoregressive transformer over 5 scales,
                                 obtained from samples with lengths in (128, 256). 
