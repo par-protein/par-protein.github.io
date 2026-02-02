@@ -39,6 +39,8 @@
     <link rel="stylesheet" href="./static/css/index.css">
     <link rel="stylesheet" href="./static/css/animation_style.css"> <!-- Animation styles -->
     <link rel="stylesheet" href="./static/css/style.css"> <!-- Animation styles -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="./static/js/jquery-3.6.4.min.js"></script>
@@ -66,18 +68,24 @@
                             Protein Autoregressive Modeling <br>via Multiscale Structure Generation
                         </h1>
                         <div class="is-size-6 publication-authors">
-                            (to update) <span class="author-block">
-                                Yanru Qu, </span>
                             <span class="author-block">
-                                Cheng-Yen Hsieh, </span>
+                                <strong><a href="https://yanruqu.com/">Yanru Qu</a></strong><sup>1,2 *</sup>, 
+                            </span>
                             <span class="author-block">
-                                Zaixiang Zheng, </span>
+                                <strong><a href="https://wesleyhsieh0806.github.io/">Wesley Hsieh</a></strong><sup>1 *,†</sup>, 
+                            </span>
                             <span class="author-block">
-                                Ge Liu, </span>
+                                <a href="https://zhengzx-nlp.github.io/">Zaixiang Zheng</a><sup>1</sup>, 
+                            </span>
                             <span class="author-block">
-                                Quanquan Gu, </span>
+                                <a href="https://www.mit.edu/~geliu/">Ge Liu</a><sup>2</sup>, 
+                            </span>
+                            <span class="author-block">
+                                <a href="https://web.cs.ucla.edu/~qgu/">Quanquan Gu</a><sup>1 ‡</sup>, 
+                            </span>
                             <br>
                         </div>
+                        
                         <!-- <div class="is-size-5 publication-authors">
               <span class="author-block">
                 <a href="https://wesleyhsieh0806.github.io/">Wesley Hsieh</a><sup>1</sup>,</span>
@@ -105,24 +113,22 @@
               <span class="author-block"><small style="font-size: 0.8em;"><br><sup>‡</sup>Core Contributor</small></span>
             </div> -->
                         <div class="is-size-6 publication-authors">
-                            <span class="author-block"><sup>1</sup>ByteDance Research </span>
+                            <span class="author-block"><sup>1</sup>ByteDance Seed</span>
                             &nbsp;&nbsp;
                             <span class="author-block"><sup>2</sup>University of Illinois at Urbana-Champaign </span>
                             &nbsp;&nbsp;
-                            <!-- <span class="eql-cntrb"><small style="font-size: 0.75em;"><br>
-                  <sup>*</sup>Equal Contribution
-                  &nbsp;
-                  <sup>†</sup>Project Lead
-                  &nbsp;
-                  <sup>‡</sup>Core Contributor
-                  &nbsp;
-                  <sup>#</sup>Corresponding Author
-                </small>
-              </span> -->
+                            <span class="eql-cntrb"><small style="font-size: 0.75em;"><br>
+                                <sup>*</sup>Equal Contribution
+                                &nbsp;
+                                <sup>†</sup>Project Lead
+                                &nbsp;
+                                <sup>‡</sup>Corresponding Author
+                                </small>
+                            </span>
                         </div>
                         <!-- <h1 style="font-size:24px">ICCV 2023 (<b>Oral, Best Student Paper</b>)</h1> -->
-                        <h2 class="subtitle is-3 has-text-weight-semibold mt-1 mb-1" style="color: #F05365;"> ICLR 2026
-                            (<b>Submission</b>) </h2>
+                        <!-- <h2 class="subtitle is-3 has-text-weight-semibold mt-1 mb-1" style="color: #F05365;"> ICLR 2026
+                            (<b>Submission</b>) </h2> -->
                         <div class="column has-text-centered">
                             <div class="publication-links">
                                 <!-- PDF Link. -->
@@ -131,7 +137,7 @@
                                         <span class="icon">
                                             <i class="fas fa-file-pdf"></i>
                                         </span>
-                                        <span>Paper (Incoming)</span>
+                                        <span>Paper </span>
                                     </a>
                                 </span>
                                 <!-- Video Link. -->
@@ -154,12 +160,12 @@
                                     </a>
                                 </span>
                                 <!-- Model Link. -->
-                                <span class="link-block">
+                                <!-- <span class="link-block">
                                     <a href="#" class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">🤗</span>
                                         <span>Model Checkpoints (Incoming)</span>
                                     </a>
-                                </span>
+                                </span> -->
                                 <!-- Citation Link. -->
                                 <span class="link-block">
                                     <a href="#Citation" class="external-link button is-normal is-rounded is-dark">
@@ -171,9 +177,9 @@
                                 </span>
                             </div>
                         </div>
-                        <!-- <span class="publication-venue" style="font-weight: 500; font-size: 1.9ch; ; margin-top: 0.5rem; margin-bottom: 0.3rem; display: inline-block;">
-              <strong>Design choices are essential:</strong> Our designs enable the 650M multimodal PLM to <br>outperform 3B-scale baselines and specialized structure folding models.
-            </span> -->
+                        <span class="publication-venue" style="font-weight: 500; font-size: 1.9ch; ; margin-top: 0.5rem; margin-bottom: 0.3rem; display: inline-block;">
+                            <strong>Protein Autoregressive Modeling:</strong> Taking initiative from the hierarchical nature of proteins, <strong>PAR</strong> generates backbones by forming a global topology and performing refinements, analogous to sculpting a statue into a masterpiece.
+                        </span>
                     </div>
                 </div>
             </div>
@@ -209,28 +215,35 @@
             <!-- Abstract. -->
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
+                    <figure style="margin-top: -1rem; margin-bottom: 1rem;">
+                        <img src="./static/img/generation_over_scale_with_rmsd_4_samples.png"
+                            alt="Multi-scale Generation" style="width:100%;">
+
+                        <!-- Add the figcaption below the image -->
+                    </figure>
+                </div>
+            </div>
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                            We present protein autoregressive modeling (PAR), the first multi-scale autore-
-                            gressive framework for protein backbone generation via coarse-to-fine next-scale
-                            prediction. Using the hierarchical nature of proteins, PAR generates structures that
-                            mimic sculpting a statue, forming a coarse topology and refining structural details
-                            over scales. To achieve this, PAR consists of three key components: (i) multi-
-                            scale downsampling operations that represent protein structures across multiple
-                            scales during training; (ii) an autoregressive transformer that encodes multi-scale
-                            information and produces conditional embeddings to guide structure generation;
-                            (iii) a flow-based backbone decoder that generates backbone atoms conditioned
-                            on these embeddings. Moreover, autoregressive models suffer from exposure bias,
-                            caused by the training and the generation procedure mismatch, and substantially de-
-                            grades structure generation quality. We effectively alleviate this issue by adopting
-                            noisy context learning and scheduled sampling, enabling robust backbone gener-
-                            ation. Notably, PAR exhibits strong zero-shot generalization, supporting flexible
-                            human-prompted conditional generation and motif scaffolding without requiring
-                            fine-tuning. On the unconditional generation benchmark, PAR effectively learns
-                            protein distributions and produces backbones of high design quality, and exhibits
-                            favorable scaling behavior. Together, these properties establish PAR as a promising
-                            framework for protein structure generation. </p>
+                            We present <em>Protein Autoregressive Modeling (PAR)</em>, the <strong>first multi-scale autoregressive framework</strong>
+                            for protein backbone generation via coarse-to-fine next-scale prediction. Leveraging the hierarchical nature of proteins,
+                            PAR generates structures in a sculpting-like process, forming a coarse topology and progressively refining structural
+                            details across scales. PAR consists of three key components: <em>multi-scale downsampling</em> operations that represent
+                            protein structures across multiple scales during training; an <em>autoregressive transformer</em> that encodes multi-scale
+                            information and produces conditional embeddings to guide structure generation; and a <em>flow-based backbone decoder</em>
+                            that generates backbone atoms conditioned on these embeddings. Autoregressive models suffer from <em>exposure bias</em>,
+                            caused by the mismatch between training and generation procedures, which can substantially degrade structure generation
+                            quality. PAR effectively alleviates this issue through <em>noisy context learning</em> and <em>scheduled sampling</em>,
+                            enabling robust backbone generation. Notably, PAR exhibits strong <strong>zero-shot generalization</strong>, supporting
+                            flexible human-prompted conditional generation and motif scaffolding <em>without requiring fine-tuning</em>. On
+                            unconditional generation benchmarks, PAR effectively learns protein distributions, produces backbones of high design
+                            quality, and exhibits favorable scaling behavior, establishing PAR as a promising framework for protein structure
+                            generation.
+                          </p>
+                          
                     </div>
                 </div>
             </div>
@@ -268,20 +281,23 @@
                         <li><a href="#contributions">Major Contributions</a></li>
                         <li><a href="#par">Protein Autoregressive Modeling</a></li>
                         <ul>
-                            <li><a href="#decomposer">Protein Decomposer</a></li>
-                            <li><a href="#encoder">Autoregressive Transformer Encoder</a></li>
-                            <li><a href="#decoder">Flow Decoder</a></li>
-                            <li><a href="#bias">Bias Mitigation</a></li>
+                            <li><a href="#decomposer">Multi-Scale Protein Downsampling</a></li>
+                            <li><a href="#backbone_autoregressive">Coarse-to-Fine Backbone Autoregressive Modeling</a></li>
+                            <ul>
+                                <li><a href="#encoder">Autoregressive Transformer</a></li>
+                                <li><a href="#decoder">Flow-Based Atomic Decoder</a></li>
+                            </ul>
+                            <li><a href="#bias">Mitigating Exposure Bias</a></li>
                             <li><a href="#inference">Inference</a></li>
                         </ul>
                         <li><a href="#experiments">Experiments</a></li>
                         <ul>
                             <li><a href="#uncond">Protein Backbone Generation</a></li>
-                            <li><a href="#prompt">0-shot Prompted Generation</a></li>
-                            <li><a href="#motif">0-shot Motif Scaffolding</a></li>
+                            <li><a href="#prompt">Zero-Shot Prompted Generation</a></li>
+                            <li><a href="#motif">Zero-Shot Motif Scaffolding</a></li>
                             <li><a href="#scaling">Scaling Effects of PAR</a></li>
-                            <li><a href="#efficiency">Inference Efficiency</a></li>
-                            <li><a href="#attn">Interpreting AR Transformer Attention</a></li>
+                            <li><a href="#efficiency">Efficient Sampling</a></li>
+                            <li><a href="#attn">Interpreting Multi-Scale PAR</a></li>
                         </ul>
                         <li><a href="#conclusion">Conclusion</a></li>
                         <li><a href="#citation">BibTeX</a></li>
@@ -301,12 +317,13 @@
                         (i) Extending AR models to continuous data often relies on <b>data discretization</b>, which can
                         reduce structural fidelity and fine-grained details for proteins.
                         (ii) Protein residues exhibit strong <b>bidirectional dependencies</b>, while AR model usually
-                        follows a unidirectional order.
-                        Inspired by the Visual AutoRegressive Model (VAR) (todo:cite?), we raise the following research
-                        question:
-                        Could we start from a coarse-grained representation that captures global topology, and
-                        iteratively refine it through <b>next-scale prediction</b> to obtain accurate backbone
-                        geometries?
+                        follows a unidirectional order, and thus limits the quality of previous attempts on autoregressive structure generation.
+                        A natural question therefore arises: 
+                        <blockquote>
+                            <em>Can we apply AR modeling to protein backbone design?</em>
+                        </blockquote>
+                          
+                          
                     </p>
                     <figure style="margin-top: 1rem; margin-bottom: 1rem;">
                         <img src="./static/img/generation_over_scale_with_rmsd_4_samples.png"
@@ -324,49 +341,59 @@
                         Our main contributions are summarized as follows:
                     </p>
                     <ul>
-                        <li>We present PAR, the first multi-scale AR model for protein backbone generation that
-                            addresses key limitations of existing AR methods.</li>
-                        <li>PAR comprises multi-scale downsampling, AR transformer, and a flow-based decoder, to
-                            directly model Cα atoms, avoiding fidelity loss from discretization.</li>
-                        <li>We alleviate exposure bias through noisy context learning and scheduled sampling,
-                            effectively improving structure generation.</li>
-                        <li>Our model shows an interpretable generation process that forms coarse backbone topology and
-                            refines it progressively.</li>
-                        <li>Benchmarking results show that PAR effectively captures protein data distributions,
-                            achieving FPSD score of 231.5 against PDB dataset that further scale with training compute.
+                        <li>
+                          We present <em>PAR</em>, the <em>first</em> multi-scale AR model for protein backbone generation that addresses key limitations of existing AR methods.
                         </li>
-                        <li>PAR exhibits zero-shot generalization potential, reflecting the versatility of AR large
-                            language models.</li>
-                    </ul>
+                        <li>
+                          PAR comprises multi-scale downsampling, AR transformer, and a flow-based decoder, to directly model C&#945; atom, avoiding discretization loss.
+                        </li>
+                        <li>
+                          We alleviate exposure bias through noisy context learning and scheduled sampling, effectively improving structure generation.
+                        </li>
+                        <li>
+                          Our model shows an interpretable generation process that forms coarse backbone topology and refines it progressively.
+                        </li>
+                        <li>
+                          Benchmarking results show that PAR effectively captures protein data distributions, achieving FPSD score of <strong>161.0</strong> against PDB dataset that further scale with training compute.
+                        </li>
+                        <li>
+                          PAR exhibits efficient sampling and zero-shot generalization potential, reflecting the versatility of AR large language models.
+                        </li>
+                      </ul>
+                      
                 </div>
 
                 <div>
                     <h2 class="title is-3" id="par"> Protein Autoregressive Modeling</h2>
-                    <figure style="margin-top: 1rem; margin-bottom: 1rem;">
+                    <figure style="margin-top: 5rem; margin-bottom: 1rem;">
                         <img src="./static/img/par_with_example.png" style="width:100%;">
 
                         <!-- Add the figcaption below the image -->
-                        <figcaption class="has-text-centered is-size-7 mt-2">
-                            <strong>Figure 2: Model Architecture of PAR.</strong>
-                            <p> PAR comprises the autoregressive (AR)
-                                transformer <em>T<sub>θ</sub></em> (left) and the flow-based backbone decoder
-                                <i>v<sub>θ</sub></i> (right). During training, we downsample a backbone
-                                <b>x</b> ∈ ℝ<sup>L×3</sup> into multi-scale representations {x<sup>1</sup>, …,
-                                x<sup>n</sup>}.
-                                <i>AR transformer</i> performs next-scale prediction, producing conditional embeddings
-                                (z<sup>1</sup>, …, z<sup>n</sup>) from (bos, …, x<sup>n−1</sup>). The shared
-                                <i>flow-based decoder</i> learns to denoise backbones x<sup>i</sup> at each scale
-                                conditioned
-                                on z<sup>i</sup>. At inference, PAR autoregressively generates x<sup>i</sup> until the
-                                final
-                                structure x is constructed.
-                            </p>
-
-                        </figcaption>
+                        <figcaption class="is-size-7 mt-2">
+                            <strong>Figure 2: Model Architecture of PAR.</strong>  
+                            PAR comprises the autoregressive (AR) transformer 
+                            <span class="katex">\(\mathcal{T}_{\theta}\)</span> (left) and the flow-based backbone decoder 
+                            <span class="katex">\(\mathcal{v}_{\theta}\)</span> (right). During training, we downsample a backbone 
+                            <span class="katex">\(\mathbf{x} \in \mathbb{R}^{L \times 3}\)</span> into multi-scale representations 
+                            <span class="katex">\(\{ \mathbf{x}^{1}, \dots, \mathbf{x}^{n} \}\)</span>.  
+                            The <em>AR transformer</em> performs next-scale prediction, producing conditional embeddings 
+                            <span class="katex">\((\mathbf{z}^{1}, \dots, \mathbf{z}^{n})\)</span> from 
+                            <span class="katex">\(( \text{bos}, \dots, \mathbf{x}^{n-1} )\)</span>.  
+                            The shared <em>flow-based decoder</em> learns to denoise backbones 
+                            <span class="katex">\(\mathbf{x}^{i}\)</span> at each scale conditioned on 
+                            <span class="katex">\(\mathbf{z}^{i}\)</span>. At inference, PAR autoregressively generates 
+                            <span class="katex">\(\mathbf{x}^{i}\)</span> until the final structure 
+                            <span class="katex">\(\mathbf{x}\)</span> is constructed.
+                          </figcaption>
                     </figure>
 
-                    <h3 class="title is-4" id="decomposer"> Protein Decomposer</h3>
+                    <h3 class="title is-4" id="decomposer"> Multi-Scale Protein Downsampling</h3>
                     <div class="content has-text-justified">
+                        
+                        <p>
+                            We construct the multi-scale representations of protein structures via hierarchical downsampling to serve as
+                            training context and targets for PAR.
+                        </p>
                         <div
                             style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
                             $$
@@ -376,31 +403,38 @@
                             $$
 
                         </div>
-
                         <p>
-                            The input structure <b>x</b> ∈ ℝ<sup>L×3</sup> is decomposed into multi-scale
-                            representations
-                            {x<sup>1</sup>, …, x<sup>n</sup>} through a scale configuration {size(1), size(2), …,
-                            size(n)},
-                            where <i>Down(x, size(i))</i> ∈ ℝ<sup>size(i)×3</sup> denotes a downsampling operation that
-                            interpolates <b>x</b> along the sequence dimension, leading to size(i) 3D centroids that
-                            provide a coarse structural layout.
-                        </p>
-                        <p>
-                            <strong>Scale configuration</strong> <b>S = {size(1), …, size(n)}</b> could be defined in
-                            two
-                            ways.
-                            When defined <i>by length</i>, scales are chosen as hyperparameters, e.g.,
-                            <b>S = {64, 128, 256}</b>. In this case, if <b>L</b> lies in <b>(size(i), size(i + 1)]</b>,
-                            the protein could be generated with only <b>i + 1</b> autoregressive steps.
-                            When defined <i>by ratio</i>, scales are adaptively determined based on protein length,
-                            e.g., <b>S = {L/4, L/2, L}</b>.
-                            Empirically, defining scales by length yields slightly better results in modeling data
-                            distributions. We adopt this as the default configuration.
-                            This design enables training PAR with flexible scale configurations.
-                            In the following sections, we describe how this hierarchy of representations are modeled
+                            The input structure <span class="katex">\(\mathbf{x} \in \mathbb{R}^{L \times 3}\)</span> is decomposed into multi-scale representations 
+                            <span class="katex">\(\{ \mathbf{x}^{1}, \dots, \mathbf{x}^{n} \}\)</span> through a scale configuration 
+                            <span class="katex">\(\{ \texttt{size(1)}, \texttt{size(2)}, \dots, \texttt{size(n)} \}\)</span>, where 
+                            <span class="katex">\(\text{Down}(\mathbf{x}, \texttt{size(i)}) \in \mathbb{R}^{\texttt{size(i)} \times 3}\)</span> denotes a downsampling operation 
+                            that interpolates <span class="katex">\(\mathbf{x}\)</span> along the sequence dimension, producing 
+                            <span class="katex">\(\texttt{size(i)}\)</span> 3D centroids that provide a coarse structural layout.
+                          </p>
+                          
+                          <p><strong>Scale configuration</strong> can be defined in two ways:</p>
+                          <ul>
+                            <li>
+                              <strong>By length:</strong> scales are chosen as hyperparameters, e.g., 
+                              <span class="katex">\(\mathbf{S} = \{64, 128, 256\}\)</span>.  
+                              If <span class="katex">\(\mathbf{L} \in (\texttt{size(i)}, \texttt{size(i+1)}]\)</span>, the protein can be generated 
+                              with only <span class="katex">\((i+1)\)</span> autoregressive steps.  
+                              Empirically, defining scales by length yields slightly better results in modeling data distributions.
+                            </li>
+                            <li>
+                              <strong>By ratio:</strong> scales are adaptively determined based on protein length, e.g., 
+                              <span class="katex">\(\mathbf{S} = \{L/4, L/2, L\}\)</span>.  
+                              This approach adjusts automatically for different protein lengths.
+                            </li>
+                          </ul>
+                          <p>
+                            We adopt length-based scales as the default configuration.  
+                            This design enables training PAR with flexible scale configurations.  
+                            In the following sections, we describe how this hierarchy of representations is modeled 
                             using the autoregressive transformer and backbone decoder.
-                        </p>
+                          </p>
+                          
+                          
 
                         <div class="container is-max-desktop content">
                             <figure class="table-container mt-5 mb-5">
@@ -478,20 +512,38 @@
                         </div>
                     </div>
 
-                    <h3 class="title is-4" id="encoder"> AR Transformer Encoder</h3>
+                    <h3 class="title is-4" id="backbone_autoregressive"> Coarse-to-Fine Backbone Autoregressive Modeling</h3>
+                        <p>
+                            We propose to use an AR Transformer with diffusion/flow-based regression loss to enable modeling of Cα
+                            atoms directly in continuous space. That is, we could write the likelihood as:
+                            <div
+                            style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
+                            
+                            <span class="katex">
+                                \[
+                                p_\theta(X = \{\mathbf{x}^1, \dots, \mathbf{x}^n\}) 
+                                = \prod_{i=1}^n p_\theta(\mathbf{x}^{i} \mid X^{&lt; i}) 
+                                = \prod_{i=1}^n p_\theta(\mathbf{x}^{i} \mid \mathbf{z}^i = \mathcal{T}_\theta(X^{&lt; i}))
+                                \]
+                            </span>
+                        </div>
+                        </p>
+                    <h4 class="title is-4" id="encoder"> Autoregressive Transformer for Scale-Wise Conditioning <span class="katex">
+                        \(\mathcal{T}_{\theta}\)
+                      </span></h4>
                     <div class="content has-text-justified">
 
                         <p>
                             To formulate the autoregressive order, we leverage the hierarchical nature of proteins,
-                            where a protein structure could span various levels of representations from coarse
-                            tertiary topology to the finest atomic coordinates. We adopt the next-scale prediction
-                            to model per-scale distribution based on prior coarser scales, which further ensures
-                            that the <i>bidirectional</i> dependencies of residues are modeled over each scale.
-                            We train our autoregressive model (Fig.&nbsp;2, left), a non-equivariant transformer
-                            <i>T<sub>θ</sub></i>, to produce scale-wise conditioning embedding
-                            <i>z<sup>i</sup></i> for scale <i>i</i> depending on prior scales
-                            <b>X&lt;i = x<sup>1</sup>, …, x<sup>i−1</sup></b>:
-                        </p>
+                            where a protein structure spans multiple levels of representation from coarse tertiary topology 
+                            to the finest atomic coordinates. We adopt next-scale prediction to model the per-scale 
+                            distribution based on prior coarser scales, ensuring that the <em>bidirectional</em> dependencies 
+                            of residues are captured at each scale. We train our autoregressive model (Fig.&nbsp;2, left), 
+                            a non-equivariant transformer <span class="math">𝒯<sub>θ</sub></span>, to produce scale-wise conditioning embeddings 
+                            <span class="katex">\(\mathbf{z}^{i}\)</span> for scale <em>i</em> depending on prior scales 
+                            <span class="katex">\(\mathbf{X^{\lt i}}=\{x^{1}, \ldots, x^{i-1}\}\)</span>:
+                          </p>
+                          
 
                         <div
                             style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
@@ -506,12 +558,15 @@
                         </div>
 
                         <p>
-                            where <b>bos</b> ∈ ℝ<sup>size(1)×3</sup> is a learnable embedding,
-                            and Up(x<sup>i−1</sup>, size(i)) interpolates x<sup>i−1</sup> to size(i) 3D points.
-                            All inputs are concatenated along the sequence dimension before being fed into
-                            T<sub>θ</sub>. The embedding z<sup>i</sup> is then used to condition the flow
-                            matching decoder to predict the backbone coordinates x<sup>i</sup>.
-                        </p>
+                            where <span class="katex">\(\mathbf{bos} \in \mathbb{R}^{\texttt{size(1)} \times 3}\)</span> is a learnable embedding,  
+                            and <span class="katex">\(\texttt{Up}(\mathbf{x}^{i-1}, \texttt{size(i)})\)</span> interpolates 
+                            <span class="katex">\(\mathbf{x}^{i-1}\)</span> to <span class="katex">\(\texttt{size(i)}\)</span> 3D points.  
+                            All inputs are concatenated along the sequence dimension before being fed into 
+                            <span class="katex">\(\mathcal{T}_{\theta}\)</span>.  
+                            The embedding <span class="katex">\(\mathbf{z}^{i}\)</span> is then used to condition the flow-matching decoder 
+                            to predict the backbone coordinates <span class="katex">\(\mathbf{x}^{i}\)</span>.
+                          </p>
+                          
 
                         <!-- <div>
           <img src="./static/img/1a26.jpeg" alt="Teaser" style="width:80%;">
@@ -519,21 +574,28 @@
 
                     </div>
 
-                    <h3 class="title is-4" id="decoder"> Flow-based Atomic Decoder</h3>
+                    <h4 class="title is-4" id="decoder"> Flow-based Atomic Decoder <span class="katex">
+                        \(\mathcal{v}_{\theta}\)
+                      </span></h4>
                     <div class="content has-text-justified">
                         <p>
-                            We enable PAR to directly model Cα positions <b>x</b>, wherein
-                            p<sub>θ</sub>(x | z<sup>i</sup>) is parameterized by an atomic decoder
-                            v<sub>θ</sub> with flow matching, which maps standard normal distribution
-                            to the target data distribution. We condition v<sub>θ</sub> with scale-wise
-                            conditioning z<sup>i</sup> predicted by the AR Transformer T<sub>θ</sub> at
-                            each scale i (Fig. 2, right). During training, we sample the noise
-                            ε<sup>i</sup> ~ 𝒩(0, I) and a time variable t<sup>i</sup> ∈ [0, 1], and compute
-                            the interpolated sample as
-                            x<sub>t<sup>i</sup></sub><sup>i</sup> = t<sup>i</sup> · x<sup>i</sup> + (1 − t<sup>i</sup>)
-                            · ε<sup>i</sup>.
-                            As such, we can jointly train v<sub>θ</sub> and T<sub>θ</sub> with an FM objective:
-                        </p>
+                            We enable PAR to directly model Cα positions 
+                            <span class="katex">\(\mathbf{x}\)</span>, wherein 
+                            <span class="katex">\({p}_{\theta}(\mathbf{x} \mid \mathbf{z}^{i})\)</span> is parameterized by an atomic decoder 
+                            <span class="katex">\(\mathcal{v}_{\theta}\)</span> with flow matching, which maps a standard normal distribution 
+                            to the target data distribution. We condition <span class="katex">\(\mathcal{v}_{\theta}\)</span> with scale-wise 
+                            embeddings <span class="katex">\(\mathbf{z}^{i}\)</span> predicted by the AR transformer 
+                            <span class="katex">\(\mathcal{T}_{\theta}\)</span> at each scale \(i\) (Fig. 2, right).  
+                          
+                            During training, we sample noise 
+                            <span class="katex">\(\boldsymbol{\varepsilon}^{i} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})\)</span> 
+                            and a time variable <span class="katex">\(t^{i} \in [0,1]\)</span>, and compute the interpolated sample as  
+                            <span class="katex">\(\mathbf{x}_{t^{i}}^{i} = t^{i} \cdot \mathbf{x}^{i} + (1 - t^{i}) \cdot \boldsymbol{\varepsilon}^{i}\)</span>.  
+                          
+                            As such, we can jointly train <span class="katex">\(\mathcal{v}_{\theta}\)</span> and 
+                            <span class="katex">\(\mathcal{T}_{\theta}\)</span> with a flow-matching (FM) objective.
+                          </p>
+                          
 
                         <div
                             style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
@@ -552,17 +614,18 @@
                         </div>
 
                         <p>
-                            where p<sub>D</sub>(<b>x</b>) denotes the training data distribution and p(t)
-                            denotes the t-sampling distribution in training.
-                            The conditioning embedding z<sup>i</sup> is injected into the atomic decoder network
-                            v<sub>θ</sub> through adaptive layer norms.
+                            where <span class="katex">\({p}_{D}(\mathbf{x})\)</span> denotes the training data distribution and 
+                            <span class="katex">p(t)</span> denotes the \(t\)-sampling distribution in training.  
+                            The conditioning embedding <span class="katex">\(\mathbf{z}^{i}\)</span> is injected into the atomic decoder network 
+                            <span class="katex">\(\mathcal{v}_{\theta}\)</span> through adaptive layer norms.  
                             <!-- We further concatenate a learnable scale embedding before feeding into the decoder. -->
-                        </p>
+                          </p>
+                          
 
 
                     </div>
 
-                    <h3 class="title is-4" id="bias"> Bias Mitigation</h3>
+                    <h3 class="title is-4" id="bias"> Mitigating Exposure Bias</h3>
                     <div class="content has-text-justified">
                         <p>
                             Training AR models typically uses <i>teacher forcing</i>, where ground-truth data are fed as
@@ -573,15 +636,9 @@
                             degrading output quality.
                             Our preliminary study shows that teacher forcing greatly reduces the designability of
                             generated structures.
-                            To mitigate this, we adapt <b>Noisy Context Learning (NCL)</b> (todo:cite?) and <b>Scheduled
-                                Sampling (SS)</b> (todo:cite?), techniques from language and
+                            To mitigate this, we adapt <i>Noisy Context Learning (NCL)</i> and <i>Scheduled
+                                Sampling (SS)</i>, techniques from language and
                             image AR modeling, for PAR.
-                        </p>
-                        <p>
-                            <strong>Noisy Context Learning (NCL)</strong> adds noise to the prior-scale inputs during
-                            training to improve robustness,
-                            while <strong>Scheduled Sampling (SS)</strong> gradually replaces ground-truth context with
-                            model predictions to mitigate exposure bias.
                         </p>
                     </div>
 
@@ -590,10 +647,6 @@
                             <figcaption class="has-text-centered is-size-6 mb-3">
                                 <b>Table 2:</b>
                                 <strong>Mitigating exposure bias for PAR.</strong>
-                                We adopted various training strategies to mitigate the exposure bias for multi-scale
-                                autoregressive modeling.
-                                These techniques are consistently effective in improving structure quality.
-                                NCL: Noisy Context Learning. SS: Scheduled Sampling.
                             </figcaption>
 
                             <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
@@ -635,23 +688,27 @@
                     <h3 class="title is-4" id="inference"> Inference</h3>
                     <div class="content has-text-justified">
                         <p>
-                            At inference, the autoregressive transformer first produces
-                            z<sup>1</sup> at the coarsest scale, which conditions the flow matching decoder
-                            to generate x<sup>1</sup> either via ODE or SDE sampling.
-                            We upsample x<sup>1</sup> using Up(x<sup>1</sup>, size(2)) and send it back into the
-                            autoregressive transformer to predict the next scale embedding
-                            z<sup>2</sup>. This coarse-to-fine process iterates n times until the flow-matching
-                            model generates the full-resolution backbone x.
+                            At inference, the autoregressive transformer first produces 
+                            <span class="katex">\(\mathbf{z}^{1}\)</span> at the coarsest scale, which conditions the flow-matching decoder 
+                            <span class="katex">\(\mathcal{v}_{\theta}\)</span> to generate 
+                            <span class="katex">\(\mathbf{x}^{1}\)</span> either via ODE or SDE sampling.  
+                            We upsample <span class="katex">\(\mathbf{x}^{1}\)</span> using 
+                            <span class="katex">\(\texttt{Up}(\mathbf{x}^{1}, \texttt{size(2)})\)</span> and send it back into the 
+                            autoregressive transformer to predict the next-scale embedding 
+                            <span class="katex">\(\mathbf{z}^{2}\)</span>.  
+                            This coarse-to-fine process iterates \(n\) times until the flow-matching model generates the full-resolution backbone 
+                            <span class="katex">\(\mathbf{x}\)</span>.  
                             KV cache is applied throughout the autoregressive process for efficiency.
-                        </p>
-
-                        <p>
-                            Leveraging the learned flow network v<sub>θ</sub>, sampling could be performed at each scale
-                            through ordinary differential equation (ODE)
-                            d x<sub>t</sub> = v<sub>θ</sub>(x<sub>t</sub>, t) d t,
-                            with the scale superscript i omitted for simplicity.
-                            Moreover, we could define the stochastic differential equation (SDE) for sampling:
-                        </p>
+                          </p>
+                          
+                          <p>
+                            Leveraging the learned flow network 
+                            <span class="katex">\(\mathcal{v}_{\theta}\)</span>, sampling can be performed at each scale through the ordinary differential equation (ODE):  
+                            <span class="katex">\(\mathrm{d} \mathbf{x}_{t} = \mathcal{v}_{\theta}(\mathbf{x}_{t}, t)\, \mathrm{d}t\)</span>,  
+                            with the scale superscript \(i\) omitted for simplicity.  
+                            Moreover, we can define the stochastic differential equation (SDE) for sampling:
+                          </p>
+                          
 
                         <div
                             style="border-left: 4px solid #ccc; padding: 1em; background-color: #f9f9f9; font-weight: bold;">
@@ -664,11 +721,11 @@
                         </div>
 
                         <p>
-                            where <i>g</i>(t) is a time-dependent scaling function for the score function
-                            <i>s</i><sub>θ</sub>(x<sub>t</sub>, t), and the noise term γ is a noise scaling parameter,
-                            and 𝒲<sub>t</sub> is a standard Wiener process.
+                            where <span class="katex">\(g(t)\)</span> is a time-dependent scaling function for the score function
+                            <span class="katex">\(s_{\theta}(x_t, t)\)</span>, and the noise term <span class="katex">\(\gamma\)</span> is a noise scaling parameter,
+                            and <span class="katex">\(\mathcal{W}_t\)</span> is a standard Wiener process.
                             The score function, defined as the gradient of the log-probability of the noisy data
-                            distribution at time <i>t</i>, could be computed as:
+                            distribution at time <span class="katex">\(t\)</span>, could be computed as:
                         </p>
 
                         <div
@@ -683,209 +740,37 @@
                 </div>
 
                 <div>
-                    <h2 class="title is-3" id="par"> Experiments</h2>
+                    <h2 class="title is-3 mt-6" id="par"> Experiments</h2>
 
                     <h3 class="title is-4" id="uncond"> Protein Backbone Generation</h3>
                     
                     <div class="content has-text-justified">
 
                         <p>
-                            We compare 3-scale PAR’s (<i>S = {64, 128, 256}</i>) backbone generation performance with
-                            other
-                            baselines in Tab. 3, following the evaluation protocol in prior work.
-                            The baselines span three categories: frame-based diffusion methods, multimodal protein
-                            language
-                            models, and diffusion/flow-based Cα generators.
-                            We train both PAR and Proteina for 200k steps on our training data, and report results of
-                            other
-                            baselines for fair comparison.
-                            Evaluation metrics and baseline categories are detailed in §A.2–A.3.
-                            As shown in Tab. 3,
-
-                            <br>
-                            📌 <strong> Designability & FPSD:</strong> PAR generates samples that closely match the
-                            reference data distribution and maintain competitive designability.
-                            PAR achieves high FPSD and fold score (fS), which assess generation quality and diversity by
-                            comparing generated and reference distributions.
-                            When comparing to Proteina, which uses non-equivariant transformers, PAR more effectively
-                            models
-                            the data distribution, achieving a lower FPSD (231.5 vs. 271.3).
-                            By reducing the noise scaling parameter γ from 0.45 to 0.30 in Equation 6 for the SDE
-                            sampling,
-                            we can reduce sampling stochasticity and improve sample quality, improving the designability
-                            from 88.0% to 96.0% without additional training.
-
-                            <br>
-
-                            📌 <strong> Diversity:</strong> Moreover, PAR demonstrates better generation diversity among
-                            all
-                            methods.
-
-                            <br>
-
-                            📌 <strong> PDB Fine-tuning:</strong>
-                            Meanwhile, prior work also reports results using fine-tuned models on a PDB subset, which
-                            improves FPSD while maintaining strong designability.
-                            Following their approach, we curated a PDB subset of 21k designable samples and fine-tuned
-                            PAR
-                            on this subset for 5k steps.
-                            After PDB fine-tuning, PAR achieved improved performance across all metrics.
-                            <br>
+                            We compare PAR with other baselines on unconditional backbone generation benchmark as shown in Table 3.
+                            To better reflect the goal of unconditional protein generation as modeling the full data distribution, we adopt <strong>FPSD</strong>, which jointly measures quality and diversity by comparing generated and reference distributions, analogous to FID in image generation.
+                            As shown in <strong>Table 3</strong>, <strong>PAR</strong> generates samples that closely match the reference data distribution and maintains competitive designability.
+                            On FPSD, <strong>PAR</strong> achieves scores of <span class="katex">211.8</span> against <strong>AFDB</strong> and <span class="katex">231.5</span> against <strong>PDB</strong>.
+                            By reducing the noise scaling parameter <span class="katex">\(\gamma\)</span> from <span class="katex">0.45</span> to <span class="katex">0.3</span> in SDE sampling, we reduce sampling stochasticity and further improve sample quality, improving the designability from <span class="katex">\(88.0\%\)</span> to <span class="katex">\(96.0\%\)</span>.
+                            After fine-tuning, <strong>PAR</strong> achieved <span class="katex">\(96.6\%\)</span> designability and <strong>161.0</strong> FPSD against the <strong>PDB</strong>, highlighting its superior distributional fidelity compared to pure diffusion-based baselines.
                         </p>
+                        
                     </div>
 
                     <div class="container is-max-desktop content">
                         <figure class="table-container mt-5 mb-5">
-                            <figcaption class="has-text-centered is-size-6 mb-3">
-                                <b>Table 3:</b>
-                                <strong>Unconditional backbone generation performance.</strong>
-                                We follow FPSD and fS to evaluate the model’s ability to capture the data distribution.
-                                <span>PAR<sub>pdb</sub> denotes the 400M model finetuned on the PDB subset.</span>
-                            </figcaption>
-
-                            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-                                <thead>
-                                    <tr>
-                                        <th class="has-text-centered">Method</th>
-                                        <th class="has-text-centered">Designability<br>(% ↑)</th>
-                                        <th class="has-text-centered">sc-RMSD ↓</th>
-                                        <th class="has-text-centered">Diversity<br>TM-Sc. ↓</th>
-                                        <th class="has-text-centered">FPSD vs.<br>PDB ↓</th>
-                                        <th class="has-text-centered">FPSD vs.<br>AFDB ↓</th>
-                                        <th class="has-text-centered">fS<br>(C / A / T ↑)</th>
-                                        <th class="has-text-centered">Sec. Struct. %<br>(α / β)</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-
-                                    <tr>
-                                        <td>FrameDiff (17M)</td>
-                                        <td class="has-text-centered">65.4</td>
-                                        <td class="has-text-centered">-</td>
-                                        <td class="has-text-centered">0.40</td>
-                                        <td class="has-text-centered">194.2</td>
-                                        <td class="has-text-centered">258.1</td>
-                                        <td class="has-text-centered">2.46 / 5.78 / 23.35</td>
-                                        <td class="has-text-centered">64.9 / 11.2</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>RFDiffusion (60M)</td>
-                                        <td class="has-text-centered">94.4</td>
-                                        <td class="has-text-centered">-</td>
-                                        <td class="has-text-centered">0.42</td>
-                                        <td class="has-text-centered">253.7</td>
-                                        <td class="has-text-centered">252.4</td>
-                                        <td class="has-text-centered">2.25 / 5.06 / 21.48</td>
-                                        <td class="has-text-centered">66.3 / 9.2</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>ESM3 (1.4B)</td>
-                                        <td class="has-text-centered">22.0</td>
-                                        <td class="has-text-centered">-</td>
-                                        <td class="has-text-centered">0.42</td>
-                                        <td class="has-text-centered">933.9</td>
-                                        <td class="has-text-centered">855.4</td>
-                                        <td class="has-text-centered">3.19 / 6.71 / 17.73</td>
-                                        <td class="has-text-centered">72.7 / 4.8</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Genie2 (16M)</td>
-                                        <td class="has-text-centered">95.2</td>
-                                        <td class="has-text-centered">-</td>
-                                        <td class="has-text-centered">0.38</td>
-                                        <td class="has-text-centered">350.0</td>
-                                        <td class="has-text-centered">313.8</td>
-                                        <td class="has-text-centered">1.55 / 3.66 / 11.65</td>
-                                        <td class="has-text-centered">72.7 / 4.8</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Proteina (200M)</td>
-                                        <td class="has-text-centered">92.8</td>
-                                        <td class="has-text-centered">1.14</td>
-                                        <td class="has-text-centered">0.37</td>
-                                        <td class="has-text-centered">282.3</td>
-                                        <td class="has-text-centered">285.6</td>
-                                        <td class="has-text-centered">2.17 / 6.22 / 21.48</td>
-                                        <td class="has-text-centered">66.3 / 9.2</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Proteina (400M)</td>
-                                        <td class="has-text-centered">92.6</td>
-                                        <td class="has-text-centered">1.09</td>
-                                        <td class="has-text-centered">0.37</td>
-                                        <td class="has-text-centered">271.3</td>
-                                        <td class="has-text-centered">272.6</td>
-                                        <td class="has-text-centered">2.13 / 6.14 / 21.48</td>
-                                        <td class="has-text-centered">65.1 / 9.7</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Proteina<sub>pdb</sub></td>
-                                        <td class="has-text-centered">94.8</td>
-                                        <td class="has-text-centered">1.02</td>
-                                        <td class="has-text-centered">0.36</td>
-                                        <td class="has-text-centered">181.5</td>
-                                        <td class="has-text-centered">257.3</td>
-                                        <td class="has-text-centered">2.64 / 6.48 / 30.10</td>
-                                        <td class="has-text-centered">46.9 / 17.6</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>PAR (200M)</td>
-                                        <td class="has-text-centered">87.0</td>
-                                        <td class="has-text-centered">1.33</td>
-                                        <td class="has-text-centered">0.37</td>
-                                        <td class="has-text-centered">252.0</td>
-                                        <td class="has-text-centered">237.9</td>
-                                        <td class="has-text-centered">2.11 / 6.14 / 19.22</td>
-                                        <td class="has-text-centered">64.3 / 8.8</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>PAR (400M)</td>
-                                        <td class="has-text-centered">88.0</td>
-                                        <td class="has-text-centered">1.28</td>
-                                        <td class="has-text-centered">0.36</td>
-                                        <td class="has-text-centered">231.5</td>
-                                        <td class="has-text-centered">211.8</td>
-                                        <td class="has-text-centered">2.20 / 6.50 / 20.96</td>
-                                        <td class="has-text-centered">63.8 / 10.4</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>γ = 0.30</td>
-                                        <td class="has-text-centered">96.0</td>
-                                        <td class="has-text-centered">1.01</td>
-                                        <td class="has-text-centered">0.39</td>
-                                        <td class="has-text-centered">313.9</td>
-                                        <td class="has-text-centered">296.4</td>
-                                        <td class="has-text-centered">2.24 / 6.60 / 16.71</td>
-                                        <td class="has-text-centered">52.3 / 13.1</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>PAR<sub>pdb</sub></td>
-                                        <td class="has-text-centered">96.6</td>
-                                        <td class="has-text-centered">1.04</td>
-                                        <td class="has-text-centered">0.43</td>
-                                        <td class="has-text-centered">161.0</td>
-                                        <td class="has-text-centered">228.4</td>
-                                        <td class="has-text-centered">2.57 / 7.42 / 23.61</td>
-                                        <td class="has-text-centered">50.2 / 16.7</td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </figure>
+                          <figcaption class="has-text-centered is-size-6 mb-3">
+                            <b>Table 3:</b>
+                            <strong>Unconditional backbone generation performance.</strong>
+                            We follow FPSD and fS to evaluate the model's ability to capture the data distribution.
+                            <span>PAR<sub>pdb</sub> denotes the 400M model finetuned on the PDB subset.</span>
+                          </figcaption>
+                      
+                          <img src="./static/img/PAR_uncond_gen_table.png" alt="Unconditional backbone generation performance table" style="width:100%;">
+                        </figure>                      
                     </div>
 
-                    <h3 class="title is-4" id="prompt"> 0-shot Prompted Generation</h3>
+                    <h3 class="title is-4" id="prompt"> Zero-Shot Prompted Generation</h3>
                     
                     <div class="content has-text-justified">
                         <p>
@@ -893,21 +778,15 @@
                             a target shape and design proteins accordingly. By leveraging PAR’s coarse-to-fine generation, 
                             a simple prompt (e.g., 16 points) can specify a protein’s coarse layout, from which the model generates 
                             the complete structure as shown in Fig. 3.
-                            </p>
-                            
-                            <p>
                             In particular, we first obtain a 16-point input prompt either by downsampling a real protein structure 
                             from the test set or by specifying the points manually (the top row in Fig. 3). Using a 5-scale PAR 
                             (<i>S = {16, 32, 64, 128, 256}</i>), we initialize the first-scale prediction with the 16-point prompt 
                             and autoregressively upsample until the full protein structure is generated, as illustrated in the bottom row of Fig. 3. 
                             <br>
+                            <br>
                             📌 Following this process, PAR can generate a new structure that <strong>preserves the coarse structural layout</strong> 
                             (first five examples), and <strong>explore entirely novel structures</strong> (last three examples). 
-                            <br>
-                            If desired, longer prompts (e.g., 32 points) could be specified to achieve more finer-grained control 
-                            over backbone generation.
-                            <br>
-                            </p>
+                        </p>
                     </div>
 
                     <figure style="margin-top: 1rem; margin-bottom: 1rem;">
@@ -925,7 +804,7 @@
                         </figcaption>
                     </figure>
 
-                    <h3 class="title is-4" id="motif"> 0-shot Motif Scaffolding</h3>
+                    <h3 class="title is-4" id="motif"> Zero-Shot Motif Scaffolding</h3>
                     <div class="content has-text-justified">
                         <p>
                             Besides the point-based layout, PAR can preserve finer-grained prompts like atomic coordinates. 
@@ -934,14 +813,15 @@
                             ground-truth motif coordinates at each scale before propagating into the next scale. 
                             To avoid clashes or discontinuities, we superimpose the ground-truth motif residues and the generated motif segments before replacement. 
                             <br>
-                            📌 With no fine-tuning and no conditioning, PAR generates <strong>plausible scaffolds</strong> that preserve motif structures with high fidelity. 
                             <br>
+                            📌 With no fine-tuning and no conditioning, PAR generates <strong>plausible scaffolds</strong> that preserve motif structures with high fidelity. 
                             This stands in contrast to diffusion or flow-based frameworks, which typically require fine-tuning on additional conditions such as masks or motif coordinates, or rely on decomposition strategies.
                             </p>
                             
                             <p>
                             Moreover, the generated scaffolds differ substantially from the input structure, showing that PAR generates structurally diverse scaffolds rather than merely copying. 
                             For example, the leftmost example in Fig. 4 preserves the yellow motif helix while introducing new secondary structure elements such as β-sheet and loops, in contrast to the original helices.
+                            We provide benchmarking results in the appendix.
                             </p>
                             
                     </div>
@@ -960,14 +840,10 @@
                         </figcaption>
                     </figure>
 
-                    <h3 class="title is-4" id="scaling"> Scaling Effect of PAR</h3>
+                    <h3 class="title is-4" id="scaling"> Scaling Effects of PAR</h3>
                     <div class="content has-text-justified">
                         <p>
-                            We examine the model’s behaviors by varying the backbone decoder’s size and number of training 
-                            steps in Fig. 5. We train PAR with 3 scales over three different model sizes with 60M, 200M, 
-                            and 400M parameters and three training durations over 200K, 400K, and 600K steps. 
-                            <br>
-                            📌 PAR demonstrates favorable behavior when scaling both model size and training duration,
+                            PAR demonstrates favorable behavior when scaling both model size and training duration,
                             effectively <strong>improving its ability to capture the protein data distribution</strong> with FPSD scores of 
                             187 against PDB and 170 against AFDB (first two columns in Fig. 5). 
                             Further, the fS scores, which reflect <strong>quality and diversity</strong>, increase with larger model sizes 
@@ -976,14 +852,11 @@
                             </p>
                             
                             <p>
-                            While extending training duration alone offers negligible gains, increasing model size 
-                            substantially enhances designability, leading to lower sc-RMSD values. Meanwhile, we empirically 
-                            observe that scaling the autoregressive transformer has minimal impacts on the evaluation results. 
-                            This is consistent with the module’s role to generate scale-wise conditioning to guide the backbone 
-                            generation, which does not require large model capacity. Similar trends have been observed in image 
-                            generation, where outputs from one scale are directly passed to the next without relying on additional 
-                            encoding modules. This allows us to prioritize increasing the backbone decoder’s model capacity that 
-                            effectively improves metrics.
+                                Meanwhile, we empirically observe that scaling the autoregressive transformer has minimal impacts 
+                                on the evaluation results.
+                                This allows us to reduce computational costs and prioritize increasing the backbone decoder's model 
+                                capacity that effectively improves generation quality. 
+                                We provide more discussion on varying model sizes in the appendix.
                             </p>
                             
                     </div>
@@ -1005,7 +878,7 @@
                         </figcaption>
                     </figure>
 
-                    <h3 class="title is-4" id="efficiency"> Inference Efficiency</h3>
+                    <h3 class="title is-4" id="efficiency"> Efficient Sampling</h3>
                     <div class="content has-text-justified">
                         <p>
                             While <strong>Tab. 3</strong> reports results using a uniform number of sampling steps across scales, 
@@ -1015,34 +888,31 @@
                             (2) we can use fewer sampling steps at finer scales than coarser scales. 
                             
                             <br>
-
-                            📌 <strong> 2× Inference Speedup:</strong> As shown in Tab. 4, by using SDE sampling only at the first scale,
+                            <br>
+                            📌 <strong> Efficient sampling at finer scales:</strong> As shown in Tab. 4, by using SDE sampling only at the first scale,
                             and switching to ODE sampling for the remaining scales, PAR could dramatically reduce 
                             the diffusion steps from 400 to 2 steps at the last two scales without harming designability (97%), 
                             yielding a 2× inference speedup. 
-                            
-                            <br>
-
                             This is possible because a high-quality coarse topology places 
                             the model near high-density regions, enabling efficient refinement with ODE sampling.
                         </p>
                         
-                        <p>
-                            <!-- Naively reducing the SDE sampling steps significantly harms designability, dropping to 22%  -->
-                            <!-- when reducing steps to 50, as shown in Fig. 8.  -->
-                            This is consistent with the observation of single-scale models like Proteina, 
-                            where designability degrades to 89% when reducing SDE sampling steps to 200 in Tab. 4. 
-                            Crucially, SDE sampling at the first scale is necessary for establishing a reliable global topology, 
-                            given that ODE-only sampling exhibits poor designability. 
-                        </p>
                         
                         <p>
-                            Compared to the single-scale 400-step baseline, PAR achieves 1.96× and 2.5× sampling speedup 
+                            📌 <strong> 2.5× inference speedup versus single-scale baselines.</strong> Compared to the single-scale 400-step baseline, PAR achieves 1.96× and 2.5× sampling speedup 
                             at length 150 and 200, respectively. 
                             This improvement is driven by speeding up the final scales, where the longer sequence lengths 
                             cause computational costs to grow quadratically in transformer architectures. 
                             Moreover, the computational costs remain constant at the first scale because it has a fixed size 64, 
                             even when generating longer sequences.
+                            For single-scale models, naively reducing the SDE sampling
+                            steps significantly harms designability.
+                        </p>
+
+                        <p>
+                            📌 <strong> Orchestrating SDE and ODE sampling.</strong> 
+                            Crucially, SDE sampling at the first scale is necessary for establishing a reliable global topology, 
+                            given that ODE-only sampling exhibits poor designability. 
                         </p>
                         
                     </div>
@@ -1159,7 +1029,7 @@
                       </div>
                       
 
-                    <h3 class="title is-4" id="attn"> Interpreting AR Transformer Attention</h3>
+                    <h3 class="title is-4" id="attn"> Interpreting Multi-Scale PAR</h3>
                     <div class="content has-text-justified">
 
                         <p>
@@ -1179,6 +1049,7 @@
                             
                             <p>
                             <i>(iii)</i> Despite focusing most heavily on the current scale, the model still retains non-negligible attention to earlier scales.
+                            <br>
                             <br>
                             📌 This indicates that PAR effectively integrates information across multiple scales and <strong>maintains structural consistency</strong> during generation.
                             <br>
